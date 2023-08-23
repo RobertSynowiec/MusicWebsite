@@ -1,13 +1,91 @@
-.header{
-    width: 1945px;
-    height: 1297px;
-    background-color: $color-dark;
-    background-image: url('/images/background.jpg');
-    background-size: cover;
-    display:  center center;
-    margin: 0;
-    padding: 0;
-    position: relative;
 
+.header-container{
+  background-color: $color-dark;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 1945px;
+  height: 1297px;
+  background-image: url('/images/background.jpg');
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  justify-content: right;
+  padding-right: 484px;
+
+  .title-container{
+    position: absolute;
+    padding-top: 447px;
+    margin: 0 ;
+    width: 1020px;
+
+    .main-title{
+      text-shadow: 0 0 118px rgba(0, 0, 0, 0.39);
+      color: $color-light;
+      font-family: $font-title;
+      font-size: 200px;
+      letter-spacing: 100px;
+      text-transform: uppercase;
+      font-weight: 600;
+      overflow: hidden;
+      margin: 0 ;
+      text-align: right;
+
+    }
+
+    .sub-main-title{
+      margin: 0;
+      padding: 0;
+      text-align: center;
+
+      li{
+        font-family: $font-title;
+        font-size: 36px;
+        color: $color-light;
+        letter-spacing: 6px;
+        line-height: 72px;
+        list-style: none;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+    }
+  }
+
+}
+
+.player-section{
+  width: 1945px;
+  height: 1000px;
+  background-color: $color-dark;
+
+  .link-container{
+    width: 575px;
+    margin-top: 58px;
+
+    .link a{
+      font-size: 30px;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: 400;
+      font-family: $font-title; // do zmiany
+      color: $color-light;
+    }
+
+  }
+
+  .player-container{
+    width: 575px;
+    margin-top: 113px;
+
+
+    .song-title{
+      color: $color-light;
+      font-size: 30px;
+      font-family: $font-title;
+      font-weight: 400;
+      text-align: center;
+    }
+  }
 
 }
