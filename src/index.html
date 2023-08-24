@@ -3,31 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Audio player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+    <link href="https://allfont.net/allfont.css?fonts=source-sans-pro-black" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header class="header-container">
 
-</body>
-</html>
-<header>
-<div class="backgroung">
-
-
-</div>
-
-</header>
-<div class="container">
-    <div class="row">
-      <div class="col-sm">
-        One of three columns
+        <div class="title-container">
+          <p class="main-title">
+            taste
+          </p>
+          <ul class="sub-main-title">
+            <li>ENGAGE</li>
+            <li>IN</li>
+            <li>ART</li>
+          </ul>
+        </div>
+  </header>
+  <section class="player-section d-flex justify-content-center">
+    <div>
+      <div class="container-fluid">
+        <div class="row link-container d-flex justify-content-between">
+          <div class="col-4 link">
+           <a href="#">home</a>
+          </div>
+          <div class="col-4 link">
+            <a href="#">search</a>
+          </div>
+          <div class="col-4 link">
+            <a href="#"> discover</a>
+          </div>
+        </div>
+        <div class="row player-container d-flex justify-content-center">
+            <p class="song-title col-12">John DOE – Where did my love go?</p>
+            <div class="ready-player-1">
+              <audio crossorigin preload="none">
+                  <source src="audio/example-1.mp3" type="audio/mpeg">
+              </audio>
+          </div>
+        </div>
+        <div class="row player-container d-flex justify-content-center">
+          <p class="song-title col-12">John DOE – Where did my love go?</p>
+          <div class="ready-player-2">
+            <audio crossorigin preload="none">
+                <source src="audio/example-1.mp3" type="audio/mpeg">
+            </audio>
+        </div>
       </div>
-      <div class="col-sm">
-        One of three columns
-      </div>
-      <div class="col-sm">
-        One of three columns
       </div>
     </div>
   </div>
+  </section>
+ <script src="/src/vendor/green-audio-player.js"></script>
+ <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      new GreenAudioPlayer('.ready-player-1', { showTooltips: true, showDownloadButton: false, enableKeystrokes: true });
+  });
+</script>
+</body>
+</html>

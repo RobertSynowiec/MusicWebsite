@@ -1,25 +1,24 @@
-
-.header-container{
+.header-container {
   background-color: $color-dark;
   position: relative;
   margin: 0;
   padding: 0;
   width: 1945px;
   height: 1297px;
-  background-image: url('/images/background.jpg');
+  background-image: url("/images/background.jpg");
   background-position: center center;
   background-size: cover;
   display: flex;
   justify-content: right;
   padding-right: 484px;
 
-  .title-container{
+  .title-container {
     position: absolute;
     padding-top: 447px;
-    margin: 0 ;
+    margin: 0;
     width: 1020px;
 
-    .main-title{
+    .main-title {
       text-shadow: 0 0 118px rgba(0, 0, 0, 0.39);
       color: $color-light;
       font-family: $font-title;
@@ -28,17 +27,16 @@
       text-transform: uppercase;
       font-weight: 600;
       overflow: hidden;
-      margin: 0 ;
+      margin: 0;
       text-align: right;
-
     }
 
-    .sub-main-title{
+    .sub-main-title {
       margin: 0;
       padding: 0;
       text-align: center;
 
-      li{
+      li {
         font-family: $font-title;
         font-size: 36px;
         color: $color-light;
@@ -48,22 +46,20 @@
         font-weight: 600;
         text-transform: uppercase;
       }
-
     }
   }
-
 }
 
-.player-section{
+.player-section {
   width: 1945px;
   height: 1000px;
   background-color: $color-dark;
 
-  .link-container{
+  .link-container {
     width: 575px;
     margin-top: 58px;
 
-    .link a{
+    .link a {
       font-size: 30px;
       text-align: center;
       text-transform: uppercase;
@@ -71,15 +67,13 @@
       font-family: $font-title; // do zmiany
       color: $color-light;
     }
-
   }
 
-  .player-container{
+  .player-container {
     width: 575px;
     margin-top: 113px;
 
-
-    .song-title{
+    .song-title {
       color: $color-light;
       font-size: 30px;
       font-family: $font-title;
@@ -87,5 +81,4 @@
       text-align: center;
     }
   }
-
 }
