@@ -1,9 +1,13 @@
+body {
+  background-color: $color-dark;
+}
+
 .header-container {
   background-color: $color-dark;
   position: relative;
   margin: 0;
   padding: 0;
-  width: 1945px;
+  width: 100vw;
   height: 1297px;
   background-image: url("/images/background.jpg");
   background-position: center center;
@@ -49,17 +53,20 @@
     }
   }
 }
-
 .player-section {
-  width: 1945px;
-  height: 1000px;
+  width: 575px;
+  height: auto;
   background-color: $color-dark;
+  margin: 0 auto;
+  padding: 0;
 
-  .link-container {
+  .link {
     width: 575px;
     margin-top: 58px;
+    display: flex;
+    justify-content: space-between;
 
-    .link a {
+    a {
       font-size: 30px;
       text-align: center;
       text-transform: uppercase;
@@ -79,6 +86,125 @@
       font-family: $font-title;
       font-weight: 400;
       text-align: center;
+    }
+    .player-song{
+      width: 100%;
+    }
+
+    .player-song-info{
+      width: 100%;
+      color: $color-light;
+      padding-top: 26px;
+      padding-bottom: 76px;
+      font-size: 20px;
+      font-family: $font-title; // do zmiany
+
+      .song-categories {
+        float: left;
+
+      }
+      .song-ranking {
+        float: right;
+      }
+    }
+  }
+}
+.subscribe {
+  width: 100vw;
+  height: auto;
+  background-color: $color-dark;
+  position: relative;
+  padding-top: 75px;
+  padding-bottom: 90px;
+
+  .title-subscribe {
+    font-size: 100px;
+    color: $color-light;
+    font-weight: 600;
+    letter-spacing: 20px;
+    right: 499px;
+    z-index: 10;
+    position: absolute;
+    top: 0px;
+  }
+  .subscribe-background {
+    width: 100vw;
+    height: auto;
+    margin: 0;
+    padding: 0;
+
+    img {
+      width: 100vw;
+      height: auto;
+      padding: 0;
+      margin: auto;
+    }
+  }
+  .title-subscribe-name {
+    position: absolute;
+    top: 515px;
+    right: 513px;
+    font-size: 100px;
+    font-weight: 400;
+    font-family: $font-title;
+    letter-spacing: 20px;
+    color: $color-light;
+    z-index: 5;
+    span {
+      color: $color-btn;
+      line-height: 27px;
+    }
+  }
+  .subscribe-artist-img {
+    position: absolute;
+    top: 250px;
+    right: 341px;
+  }
+  .new-album {
+    position: absolute;
+    top: 856px;
+    right: 313px;
+    color: $color-light;
+    font-size: 40px;
+    font-family: $font-title;
+    font-style: bold;
+    font-weight: 700;
+    letter-spacing: 8px;
+  }
+  .availabe-new-album {
+    position: absolute;
+    top: 900px;
+    right: 313px;
+    color: $color-light;
+    font-size: 40px;
+    font-family: $font-title;
+    font-weight: 600;
+    letter-spacing: 8px;
+  }
+
+  .btn-join {
+    width: 313px;
+    height: 133px;
+    background-color: $color-btn;
+    position: absolute;
+    top: 605px;
+    right: 1236px;
+    z-index: 10;
+    border-radius: 5%;
+
+    a {
+      text-align: center;
+      font-size: 40px;
+      font-family: $font-title;
+      font-weight: 700px;
+      letter-spacing: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 313px;
+      height: 133px;
+      color: $color-light;
+      text-transform: uppercase;
     }
   }
 }

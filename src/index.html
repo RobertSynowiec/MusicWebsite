@@ -1,67 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Audio player</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
-    <link href="https://allfont.net/allfont.css?fonts=source-sans-pro-black" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="header-container">
+    <link
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      rel="stylesheet">
+    <link
+      href="https://allfont.net/allfont.css?fonts=source-sans-pro-black"
+      rel="stylesheet" type="text/css">
 
-        <div class="title-container">
-          <p class="main-title">
-            taste
-          </p>
-          <ul class="sub-main-title">
-            <li>ENGAGE</li>
-            <li>IN</li>
-            <li>ART</li>
-          </ul>
-        </div>
-  </header>
-  <section class="player-section d-flex justify-content-center">
-    <div>
-      <div class="container-fluid">
-        <div class="row link-container d-flex justify-content-between">
-          <div class="col-4 link">
-           <a href="#">home</a>
-          </div>
-          <div class="col-4 link">
+    <link rel="stylesheet" href="css/style.css" >
+    <link rel="stylesheet" href="/src/vendor/green-audio-player.css" >
+  </head>
+  <body>
+    <header class="header-container">
+      <div class="title-container">
+        <p class="main-title">taste</p>
+        <ul class="sub-main-title">
+          <li>ENGAGE</li>
+          <li>IN</li>
+          <li>ART</li>
+        </ul>
+      </div>
+    </header>
+    <section class="player-section">
+          <div class="link">
+            <a href="#">home</a>
             <a href="#">search</a>
-          </div>
-          <div class="col-4 link">
             <a href="#"> discover</a>
           </div>
+        <div class="player-container">
+            <div class="player-song">
+              <p class="song-title">John DOE – Where did my love go?</p>
+              <div class="ready-player-1 player">
+                <audio crossorigin>
+                  <source src="/songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                </audio>
+              </div>
+            </div>
+            <div class="player-song-info">
+              <p class="song-categories">Categories: Slow, melancholy</p>
+              <p class="song-ranking">#25 in the ranking</p>
+            </div>
+            <div class="player-song">
+              <p class="song-title">OMD – Walking On The Milky Way</p>
+              <div class="ready-player-2 player">
+                <audio crossorigin>
+                  <source src="/songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                </audio>
+              </div>
+            </div>
+            <div class="player-song-info">
+              <p class="song-categories">Categories: Slow, melancholy</p>
+              <p class="song-ranking">#4 in the ranking</p>
+            </div>
+            <div class="player-song">
+              <p class="song-title">The Rolling Stones – Angie</p>
+              <div class="ready-player-3 player">
+                <audio crossorigin>
+                  <source src="/songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                </audio>
+              </div>
+            </div>
+            <div class="player-song-info">
+              <p class="song-categories">Categories: Slow, melancholy</p>
+              <p class="song-ranking">#4 in the ranking</p>
+            </div>
+            <div class="player-song">
+              <p class="song-title">Garbage – The World is Not Enough</p>
+              <div class="ready-player-4 player">
+                <audio crossorigin>
+                  <source src="/songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                </audio>
+              </div>
+            </div>
+            <div class="player-song-info">
+              <p class="song-categories">Categories: Slow, powerful</p>
+              <p class="song-ranking">#4 in the ranking</p>
+            </div>
         </div>
-        <div class="row player-container d-flex justify-content-center">
-            <p class="song-title col-12">John DOE – Where did my love go?</p>
-            <div class="ready-player-1">
-              <audio crossorigin preload="none">
-                  <source src="audio/example-1.mp3" type="audio/mpeg">
-              </audio>
-          </div>
-        </div>
-        <div class="row player-container d-flex justify-content-center">
-          <p class="song-title col-12">John DOE – Where did my love go?</p>
-          <div class="ready-player-2">
-            <audio crossorigin preload="none">
-                <source src="audio/example-1.mp3" type="audio/mpeg">
-            </audio>
-        </div>
+    </section>
+    <section class="subscribe">
+      <div class="title-subscribe">SUBSCRIBE NOW</div>
+      <div class="subscribe-background">
+        <img src="/images/subscribe.jpg" alt="img">
       </div>
+      <div class="title-subscribe-name">
+        Dean<br>
+        &nbsp;&nbsp;&nbsp;Hen<span>son</span>
       </div>
-    </div>
-  </div>
-  </section>
- <script src="/src/vendor/green-audio-player.js"></script>
- <script>
-  document.addEventListener('DOMContentLoaded', function() {
-      new GreenAudioPlayer('.ready-player-1', { showTooltips: true, showDownloadButton: false, enableKeystrokes: true });
-  });
-</script>
-</body>
+      <div class="subscribe-artist-img">
+        <img src="/images/artist.jpg" alt="img">
+      </div>
+      <div class="title-album">
+        <p class="new-album">NEW ALBUM</p>
+        <br>
+        <p class="availabe-new-album">Available only for subscribers</p>
+      </div>
+      <div class="btn-join">
+        <a href="#">join now</a>
+      </div>
+    </section>
+    <script src="/src/vendor/green-audio-player.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          GreenAudioPlayer.init({
+              selector: '.player',
+              stopOthersOnPlay: true
+          });
+
+          GreenAudioPlayer.init({
+              selector: '.player-with-download',
+              stopOthersOnPlay: true,
+              showDownloadButton: true,
+              enableKeystrokes: true
+          });
+
+          GreenAudioPlayer.init({
+              selector: '.player-with-accessibility',
+              stopOthersOnPlay: true,
+              enableKeystrokes: true
+          });
+      });
+  </script>
+  </body>
 </html>
