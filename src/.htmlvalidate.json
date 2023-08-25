@@ -1,0 +1,10 @@
+{
+    "extends": [
+      "html-validate:recommended"
+    ],
+
+    "rules": {
+      "close-order": "error",
+      "element-permitted-content": ["warn", {"style": "omit"}]
+    }
+  }

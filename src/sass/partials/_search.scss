@@ -1,33 +1,26 @@
 .discover{
-    width: 575px;
-    margin: 0 auto;
-    margin-top: 114px;
-    .title-discover{
-        font-size: 60px;
-        color: $color-light;
-        text-transform: uppercase;
-        text-align: center;
-        font-family: $font-title;
-        font-weight: 400;
-        letter-spacing: 12px;
-        margin-bottom: 58px;
-    }
-}
-.info-discover{
-    margin: 90px 0;
-    color: $color-light;
-    font-size: 30px;
-    text-align: center;
-    font-weight: 400;
-    letter-spacing: 6px;
+  width: 575px;
+  margin: 0 auto;
+  margin-top: 114px;
 
+  .title-discover{
+    font-size: 60px;
+    color: $color-light;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: $font-title;
+    font-weight: 400;
+    letter-spacing: 12px;
+    margin-bottom: 58px;
+  }
 }
-.footer{
-font-size: 20px;
-font-weight: 400;
-text-align: center;
-letter-spacing: 4px;
-color: $color-light;
-margin: 60px auto;
-font-family: $font-title;
+
+.info-discover{
+  margin: 90px 0;
+  color: $color-light;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 400;
+  letter-spacing: 6px;
+
 }

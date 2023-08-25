@@ -5,3 +5,13 @@
 a{
   text-decoration: none;
 }
+
+.footer{
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+  letter-spacing: 4px;
+  color: $color-light;
+  margin: 60px auto;
+  font-family: $font-title;
+}

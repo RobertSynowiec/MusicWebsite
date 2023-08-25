@@ -7,12 +7,8 @@
     <link
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
       rel="stylesheet">
-    <link
-      href="https://allfont.net/allfont.css?fonts=source-sans-pro-black"
-      rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="vendor/green-audio-player.css" >
     <link rel="stylesheet" href="css/style.css" >
-    <link rel="stylesheet" href="/src/vendor/green-audio-player.css" >
   </head>
   <body>
     <header class="header-container">
@@ -27,16 +23,16 @@
     </header>
     <section class="player-section">
           <div class="link">
-            <a href="#">home</a>
-            <a href="#">search</a>
-            <a href="#"> discover</a>
+            <a href="index.html">home</a>
+            <a href="search.html">search</a>
+            <a href="discover.html"> discover</a>
           </div>
         <div class="player-container">
             <div class="player-song">
               <p class="song-title">John DOE – Where did my love go?</p>
               <div class="ready-player-1 player">
                 <audio crossorigin>
-                  <source src="/songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                  <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
                 </audio>
               </div>
             </div>
@@ -48,7 +44,7 @@
               <p class="song-title">OMD – Walking On The Milky Way</p>
               <div class="ready-player-2 player">
                 <audio crossorigin>
-                  <source src="/songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                  <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
                 </audio>
               </div>
             </div>
@@ -60,7 +56,7 @@
               <p class="song-title">The Rolling Stones – Angie</p>
               <div class="ready-player-3 player">
                 <audio crossorigin>
-                  <source src="/songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                  <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
                 </audio>
               </div>
             </div>
@@ -72,7 +68,7 @@
               <p class="song-title">Garbage – The World is Not Enough</p>
               <div class="ready-player-4 player">
                 <audio crossorigin>
-                  <source src="/songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+                  <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
                 </audio>
               </div>
             </div>
@@ -103,7 +99,10 @@
         <a href="#">join now</a>
       </div>
     </section>
-    <script src="/src/vendor/green-audio-player.js"></script>
+    <footer>
+      <div class="footer">All rights reserved</div>
+  </footer>
+    <script src="vendor/green-audio-player.min.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
           GreenAudioPlayer.init({

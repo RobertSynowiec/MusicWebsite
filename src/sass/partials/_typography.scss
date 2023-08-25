@@ -1,1 +1,22 @@
+@font-face {
+  font-family: 'SourceSansPro-Black';
+  src: url('../../vendor/fonts/source-sans-pro/SourceSansPro-Black.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceSansPro-Semibold';
+  src: url('../../vendor/fonts/source-sans-pro/SourceSansPro-Semibold.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SourceSansPro-Regular';
+  src: url('../../vendor/fonts/source-sans-pro/SourceSansPro-Regular.otf') format('otf');
+  font-weight: normal;
+  font-style: normal;
+}
 
+body {
+  font-family: 'Arial', sans-serif;
+}

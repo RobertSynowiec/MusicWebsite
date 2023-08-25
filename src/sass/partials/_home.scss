@@ -53,6 +53,7 @@ body {
     }
   }
 }
+
 .player-section {
   width: 575px;
   height: auto;
@@ -71,7 +72,7 @@ body {
       text-align: center;
       text-transform: uppercase;
       font-weight: 400;
-      font-family: $font-title; // do zmiany
+      font-family: $font-link;
       color: $color-light;
     }
   }
@@ -87,6 +88,7 @@ body {
       font-weight: 400;
       text-align: center;
     }
+
     .player-song{
       width: 100%;
     }
@@ -97,18 +99,20 @@ body {
       padding-top: 26px;
       padding-bottom: 76px;
       font-size: 20px;
-      font-family: $font-title; // do zmiany
+      font-family: $font-regular;
 
       .song-categories {
         float: left;
 
       }
+
       .song-ranking {
         float: right;
       }
     }
   }
 }
+
 .subscribe {
   width: 100vw;
   height: auto;
@@ -126,7 +130,9 @@ body {
     z-index: 10;
     position: absolute;
     top: 0px;
+    font-family: $font-title;
   }
+
   .subscribe-background {
     width: 100vw;
     height: auto;
@@ -140,6 +146,7 @@ body {
       margin: auto;
     }
   }
+
   .title-subscribe-name {
     position: absolute;
     top: 515px;
@@ -150,34 +157,37 @@ body {
     letter-spacing: 20px;
     color: $color-light;
     z-index: 5;
+
     span {
       color: $color-btn;
       line-height: 27px;
     }
   }
+
   .subscribe-artist-img {
     position: absolute;
     top: 250px;
     right: 341px;
   }
+
   .new-album {
     position: absolute;
     top: 856px;
     right: 313px;
     color: $color-light;
     font-size: 40px;
-    font-family: $font-title;
-    font-style: bold;
+    font-family: $font-link;
     font-weight: 700;
     letter-spacing: 8px;
   }
+
   .availabe-new-album {
     position: absolute;
     top: 900px;
     right: 313px;
     color: $color-light;
     font-size: 40px;
-    font-family: $font-title;
+    font-family: $font-link;
     font-weight: 600;
     letter-spacing: 8px;
   }
