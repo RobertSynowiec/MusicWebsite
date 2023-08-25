@@ -6,6 +6,16 @@ a{
   text-decoration: none;
 }
 
+#pages {
+  > * {
+    display: none;
+  }
+
+  > .active {
+    display: block;
+  }
+}
+
 .footer{
   font-size: 20px;
   font-weight: 400;

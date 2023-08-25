@@ -76,39 +76,40 @@ body {
       color: $color-light;
     }
   }
+}
 
-  .player-container {
-    width: 575px;
-    margin-top: 113px;
+.song-list-container {
+  width: 575px;
+  margin: 113px auto;
 
-    .song-title {
-      color: $color-light;
-      font-size: 30px;
-      font-family: $font-title;
-      font-weight: 400;
-      text-align: center;
+
+  .song-header {
+    color: $color-light;
+    font-size: 30px;
+    font-family: $font-title;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .player-song{
+    width: 100%;
+  }
+
+  .player-song-info{
+    width: 100%;
+    color: $color-light;
+    padding-top: 26px;
+    padding-bottom: 76px;
+    font-size: 20px;
+    font-family: $font-regular;
+
+    .song-categories {
+      float: left;
+
     }
 
-    .player-song{
-      width: 100%;
-    }
-
-    .player-song-info{
-      width: 100%;
-      color: $color-light;
-      padding-top: 26px;
-      padding-bottom: 76px;
-      font-size: 20px;
-      font-family: $font-regular;
-
-      .song-categories {
-        float: left;
-
-      }
-
-      .song-ranking {
-        float: right;
-      }
+    .song-ranking {
+      float: right;
     }
   }
 }

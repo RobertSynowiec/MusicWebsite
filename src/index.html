@@ -21,87 +21,60 @@
         </ul>
       </div>
     </header>
-    <section class="player-section">
-          <div class="link">
-            <a href="index.html">home</a>
-            <a href="search.html">search</a>
-            <a href="discover.html"> discover</a>
+      <section id="link" class="player-section">
+            <div class="link">
+              <a href="index.html">home</a>
+              <a href="search.html">search</a>
+              <a href="discover.html"> discover</a>
+            </div>
+      </section>
+      <section id="song" class="SongList">
+          <div id="song-list" class="song-list-container">
           </div>
-        <div class="player-container">
-            <div class="player-song">
-              <p class="song-title">John DOE – Where did my love go?</p>
-              <div class="ready-player-1 player">
-                <audio crossorigin>
-                  <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
-                </audio>
-              </div>
-            </div>
-            <div class="player-song-info">
-              <p class="song-categories">Categories: Slow, melancholy</p>
-              <p class="song-ranking">#25 in the ranking</p>
-            </div>
-            <div class="player-song">
-              <p class="song-title">OMD – Walking On The Milky Way</p>
-              <div class="ready-player-2 player">
-                <audio crossorigin>
-                  <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
-                </audio>
-              </div>
-            </div>
-            <div class="player-song-info">
-              <p class="song-categories">Categories: Slow, melancholy</p>
-              <p class="song-ranking">#4 in the ranking</p>
-            </div>
-            <div class="player-song">
-              <p class="song-title">The Rolling Stones – Angie</p>
-              <div class="ready-player-3 player">
-                <audio crossorigin>
-                  <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
-                </audio>
-              </div>
-            </div>
-            <div class="player-song-info">
-              <p class="song-categories">Categories: Slow, melancholy</p>
-              <p class="song-ranking">#4 in the ranking</p>
-            </div>
-            <div class="player-song">
-              <p class="song-title">Garbage – The World is Not Enough</p>
-              <div class="ready-player-4 player">
-                <audio crossorigin>
-                  <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
-                </audio>
-              </div>
-            </div>
-            <div class="player-song-info">
-              <p class="song-categories">Categories: Slow, powerful</p>
-              <p class="song-ranking">#4 in the ranking</p>
-            </div>
+      </section>
+      <section class="subscribe">
+        <div class="title-subscribe">SUBSCRIBE NOW</div>
+        <div class="subscribe-background">
+          <img src="/images/subscribe.jpg" alt="img">
         </div>
-    </section>
-    <section class="subscribe">
-      <div class="title-subscribe">SUBSCRIBE NOW</div>
-      <div class="subscribe-background">
-        <img src="/images/subscribe.jpg" alt="img">
+        <div class="title-subscribe-name">
+          Dean<br>
+          &nbsp;&nbsp;&nbsp;Hen<span>son</span>
+        </div>
+        <div class="subscribe-artist-img">
+          <img src="/images/artist.jpg" alt="img">
+        </div>
+        <div class="title-album">
+          <p class="new-album">NEW ALBUM</p>
+          <br>
+          <p class="availabe-new-album">Available only for subscribers</p>
+        </div>
+        <div class="btn-join">
+          <a href="#">join now</a>
+        </div>
+      </section>
+      <footer>
+        <div class="footer">All rights reserved</div>
+    </footer>
+    <script id="template-song-list" type="text/x-handlebars-template">
+      <div class="player-song"><!-- player list -->
+        <p class="song-header">{{ title }} <!-- John DOE – Where did my love go?--></p><!-- song title -->
+
+        <!-- start green-auto-player  -->
+        <div class="ready-player-1 player">
+          <audio crossorigin>
+            <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+          </audio>
+        </div>
+        <!-- end green-auto-player  -->
       </div>
-      <div class="title-subscribe-name">
-        Dean<br>
-        &nbsp;&nbsp;&nbsp;Hen<span>son</span>
+      <!-- start details -->
+      <div class="player-song-info">
+        <p class="song-categories">Categories: {{ categories }} <!-- Categories: Slow, melancholy--></p><!-- category details -->
+        <p class="song-ranking">{{ ranking }} in the ranking<!--#25 in the ranking--></p><!--ranking details -->
       </div>
-      <div class="subscribe-artist-img">
-        <img src="/images/artist.jpg" alt="img">
-      </div>
-      <div class="title-album">
-        <p class="new-album">NEW ALBUM</p>
-        <br>
-        <p class="availabe-new-album">Available only for subscribers</p>
-      </div>
-      <div class="btn-join">
-        <a href="#">join now</a>
-      </div>
-    </section>
-    <footer>
-      <div class="footer">All rights reserved</div>
-  </footer>
+      <!-- end details -->
+    </script>
     <script src="vendor/green-audio-player.min.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -124,5 +97,7 @@
           });
       });
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script> <!-- using the Handlebars library -->
+  <script src="./js/app.js" type="module"></script><!-- type="module" tells the browser to split jst into separate files -->
   </body>
 </html>
