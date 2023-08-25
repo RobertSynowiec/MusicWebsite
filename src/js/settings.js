@@ -23,6 +23,11 @@ export const settings = {
     songs: 'songs',
   }
 };
+export const classFor = {
+  player: '.player',
+  playerDownload: '.player-with-download',
+  playerAccessibility: '.player-with-accessibility',
+};
 export const templates = {
-  menuProduct: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),
+  songList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),
 };

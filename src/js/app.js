@@ -1,30 +1,64 @@
-import { settings, templates, classNames, } from '../js/settings.js';
-import SongList from '../js/components/SongList.js';
+import { templates, select, classFor, } from '../js/settings.js';
 import { dataSource } from '../js/data.js';
+import { utils } from '../js/utilis.js';
+{
+  ('use strict');
+  class SongList {
 
-const app = {
+    constructor() {
 
-  initSongPlayer: function () {  //method
+      this.getElement();
+      this.initData();
+      this.render();
+      this.initPlayer();
+    }
+    getElement() { //
 
-    const song = new SongList();
-    console.log('player ', song);
-    console.log('this.data:', this.data);
-  },
-  initData: function () {
+      this.songList = document.querySelector(select.containerOf.songs);
+    }
+    initData() {
+      this.data = dataSource.songs; // reference to the data in the data.js file
+    }
+    /*creating the html code (#home) based on the Handlebars template*/
+    render() {
 
-    this.data = dataSource; // preparing access to data from the dataSource object - reference
-  },
+      /* iterating over all songs in data.js */
+      for (let elem of this.data) {
 
-  init: function () {
+        /* html code generation */
+        const generatedHTML = templates.songList(elem);
 
-    console.log('*** App starting ***');
-    console.log('this:', this);
-    console.log('classNames:', classNames);
-    console.log('settings:', settings);
-    console.log('templates:', templates);
+        /* generating dom element for all tracks */
+        const generatedElementDOM = utils.createDOMFromHTML(generatedHTML);
 
-    this.initData();
-    this.initSongPlayer();
-  },
-};
-app.init();
+        /* The generated DOM element is added as a new DOM child to the .songList */
+        this.songList.appendChild(generatedElementDOM);
+
+      }
+    }
+    initPlayer() {
+
+      document.addEventListener('DOMContentLoaded', function () {
+        GreenAudioPlayer.init({ // eslint-disable-line
+          selector: classFor.player,
+          stopOthersOnPlay: true
+        });
+
+        GreenAudioPlayer.init({ // eslint-disable-line
+          selector: classFor.playerDownload,
+          stopOthersOnPlay: true,
+          showDownloadButton: true,
+          enableKeystrokes: true
+        });
+
+        GreenAudioPlayer.init({ // eslint-disable-line
+          selector: classFor.playerAccessibility,
+          stopOthersOnPlay: true,
+          enableKeystrokes: true
+        });
+      });
+      console.log(document);
+    }
+  }
+  const app = new SongList(); // eslint-disable-line
+}

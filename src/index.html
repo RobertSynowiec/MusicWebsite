@@ -56,48 +56,39 @@
       <footer>
         <div class="footer">All rights reserved</div>
     </footer>
+     <!-- start template song list  -->
     <script id="template-song-list" type="text/x-handlebars-template">
-      <div class="player-song"><!-- player list -->
-        <p class="song-header">{{ title }} <!-- John DOE – Where did my love go?--></p><!-- song title -->
+      <div class="player-song">
+        <p class="song-header">{{name}} - {{title}}</p>
 
         <!-- start green-auto-player  -->
-        <div class="ready-player-1 player">
+        <div class="ready-player-{{id}} player">
           <audio crossorigin>
-            <source src="songs/At_The_Top_David_Renda.mp3" type="audio/mp3">
+            <source src="songs/{{filename}}" type="audio/mp3">
           </audio>
         </div>
         <!-- end green-auto-player  -->
-      </div>
+
       <!-- start details -->
       <div class="player-song-info">
-        <p class="song-categories">Categories: {{ categories }} <!-- Categories: Slow, melancholy--></p><!-- category details -->
-        <p class="song-ranking">{{ ranking }} in the ranking<!--#25 in the ranking--></p><!--ranking details -->
+        <p class="song-categories">Categories: {{categories}}</p>
+        <p class="song-ranking">#{{ranking}} in the ranking</p>
       </div>
+    </div>
       <!-- end details -->
     </script>
-    <script src="vendor/green-audio-player.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          GreenAudioPlayer.init({
-              selector: '.player',
-              stopOthersOnPlay: true
-          });
+    <!-- end template song list  -->
 
-          GreenAudioPlayer.init({
-              selector: '.player-with-download',
-              stopOthersOnPlay: true,
-              showDownloadButton: true,
-              enableKeystrokes: true
-          });
+    <!-- start  green-audio-player -->
+    <script src="./vendor/green-audio-player.min.js"></script>
+    <!-- end green-audio-player -->
 
-          GreenAudioPlayer.init({
-              selector: '.player-with-accessibility',
-              stopOthersOnPlay: true,
-              enableKeystrokes: true
-          });
-      });
-  </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script> <!-- using the Handlebars library -->
-  <script src="./js/app.js" type="module"></script><!-- type="module" tells the browser to split jst into separate files -->
+    <!-- start the Handlebars library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <!-- end the Handlebars library -->
+
+  <!-- start type="module" tells the browser to split jst into separate files -->
+  <script src="./js/app.js" type="module"></script>
+  <!-- end type="module" tells the browser to split jst into separate files -->
   </body>
 </html>
