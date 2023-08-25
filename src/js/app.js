@@ -2,7 +2,7 @@ import { settings, templates, classNames, } from '../js/settings.js';
 import SongList from '../js/components/SongList.js';
 const app = {
 
-  initSongPlayer: function () {
+  initSongPlayer: () => {
 
     const player = new SongList();
     console.log('player ', player);
