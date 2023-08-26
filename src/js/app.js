@@ -1,64 +1,66 @@
-import { templates, select, classFor, } from '../js/settings.js';
-import { dataSource } from '../js/data.js';
-import { utils } from '../js/utilis.js';
-{
-  ('use strict');
-  class SongList {
+import { select, classNames } from './settings.js';
 
-    constructor() {
+const app = {
 
-      this.getElement();
-      this.initData();
-      this.render();
-      this.initPlayer();
-    }
-    getElement() { //
+  initPages: function () {
 
-      this.songList = document.querySelector(select.containerOf.songs);
-    }
-    initData() {
-      this.data = dataSource.songs; // reference to the data in the data.js file
-    }
-    /*creating the html code (#home) based on the Handlebars template*/
-    render() {
+    this.pages = document.querySelector(select.containerOf.pages).children;
+    console.log('thispages, ', this.pages);
 
-      /* iterating over all songs in data.js */
-      for (let elem of this.data) {
+    this.links = document.querySelectorAll(select.nav.links);
+    console.log('thislinks, ', this.links); const idFromHash = window.location.hash.replace('#/', '');
 
-        /* html code generation */
-        const generatedHTML = templates.songList(elem);
+    let pageMatchingHash = this.pages[0].id;
 
-        /* generating dom element for all tracks */
-        const generatedElementDOM = utils.createDOMFromHTML(generatedHTML);
+    for (let page of this.pages) {
 
-        /* The generated DOM element is added as a new DOM child to the .songList */
-        this.songList.appendChild(generatedElementDOM);
-
+      if (page.id == idFromHash) {
+        pageMatchingHash = page.id;
+        break;
       }
     }
-    initPlayer() {
 
-      document.addEventListener('DOMContentLoaded', function () {
-        GreenAudioPlayer.init({ // eslint-disable-line
-          selector: classFor.player,
-          stopOthersOnPlay: true
-        });
+    this.activatePage(pageMatchingHash);
 
-        GreenAudioPlayer.init({ // eslint-disable-line
-          selector: classFor.playerDownload,
-          stopOthersOnPlay: true,
-          showDownloadButton: true,
-          enableKeystrokes: true
-        });
+    for (let link of this.links) {
 
-        GreenAudioPlayer.init({ // eslint-disable-line
-          selector: classFor.playerAccessibility,
-          stopOthersOnPlay: true,
-          enableKeystrokes: true
-        });
+      const thisApp = this;
+      link.addEventListener('click', function (event) {
+
+        const clikedElement = this;
+        event.preventDefault();
+
+        /* get page id from href attribute */
+        const id = clikedElement.getAttribute('href').replace('#', '');
+
+        /* run this.activePage with that id */
+
+        thisApp.activatePage(id);
+
+        /* change url hash */
+        window.location.hash = '#/' + id;
+
       });
-      console.log(document);
     }
+  },
+  activatePage: function (pageId) {
+
+    /* add class active to matching pages, remove from non-matching*/
+    for (let page of this.pages) {
+      page.classList.toggle(classNames.pages.active, page.id == pageId);
+
+    }
+    for (let link of this.links) {
+      link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
+
+    }
+  },
+
+  init: function () {
+
+    this.initPages();
+
+
   }
-  const app = new SongList(); // eslint-disable-line
-}
+};
+app.init();

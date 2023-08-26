@@ -1,21 +1,24 @@
 export const select = {
   templateOf: {
     songList: '#template-song-list',
+    searchList: '#template-search-list',
+    dicoverList: '#template-discover-list',
   },
   containerOf: {
     songs: '#song-list',
+    pages: '#pages',
+  },
+  nav: {
+    links: '.link a',
   }
 };
 export const classNames = {
-  menuProduct: {
-    songList: 'active',
+  pages: {
+    active: 'active',
   },
   nav: {
     active: 'active',
   },
-  pages: {
-    active: 'active',
-  }
 };
 export const settings = {
   db: {
@@ -30,4 +33,6 @@ export const classFor = {
 };
 export const templates = {
   songList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),
+  searchList: Handlebars.compile(document.querySelector(select.templateOf.searchList).innerHTML),
+  discoverList: Handlebars.compile(document.querySelector(select.templateOf.dicoverList).innerHTML),
 };

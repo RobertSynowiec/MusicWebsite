@@ -23,15 +23,27 @@
     </header>
       <section id="link" class="player-section">
             <div class="link">
-              <a href="index.html">home</a>
-              <a href="search.html">search</a>
-              <a href="discover.html"> discover</a>
+              <a class="active" href="#index">home</a>
+              <a href="#search">search</a>
+              <a href="#discover"> discover</a>
             </div>
       </section>
-      <section id="song" class="SongList">
-          <div id="song-list" class="song-list-container">
+
+      <div id="pages">
+        <section class="active" id="index">
+            <div id="song-list" class="song-list-container">
+            </div>
+        </section>
+        <section id="search">
+          <div id="search-list" class="search-list-container">
           </div>
-      </section>
+        </section>
+        <section id="discover">
+        <div id="discover-list" class="discover-list-container">
+        </div>
+        </section>
+      </div>
+
       <section class="subscribe">
         <div class="title-subscribe">SUBSCRIBE NOW</div>
         <div class="subscribe-background">
@@ -56,39 +68,87 @@
       <footer>
         <div class="footer">All rights reserved</div>
     </footer>
-     <!-- start template song list  -->
-    <script id="template-song-list" type="text/x-handlebars-template">
-      <div class="player-song">
-        <p class="song-header">{{name}} - {{title}}</p>
+  <!-- start template song list  -->
+  <script id="template-song-list" type="text/x-handlebars-template">
+        <div class="player-song">
+          <p class="song-header">{{name}} - {{title}}</p>
 
-        <!-- start green-auto-player  -->
-        <div class="ready-player-{{id}} player">
-          <audio crossorigin>
-            <source src="songs/{{filename}}" type="audio/mp3">
-          </audio>
+          <!-- start green-auto-player  -->
+          <div class="ready-player-{{id}} player">
+            <audio crossorigin>
+              <source src="songs/{{filename}}" type="audio/mp3">
+            </audio>
+          </div>
+          <!-- end green-auto-player  -->
+
+        <!-- start details -->
+        <div class="player-song-info">
+          <p class="song-categories">Categories: {{categories}}</p>
+          <p class="song-ranking">#{{ranking}} in the ranking</p>
         </div>
-        <!-- end green-auto-player  -->
-
-      <!-- start details -->
-      <div class="player-song-info">
-        <p class="song-categories">Categories: {{categories}}</p>
-        <p class="song-ranking">#{{ranking}} in the ranking</p>
       </div>
+        <!-- end details -->
+  </script>
+  <!-- end template song list  -->
+
+  <!-- start template search list -->
+  <script id="template-search-list" type="text/x-handlebars-template">
+    <div class="player-song">
+      <p class="song-header">{{name}} - {{title}}</p>
+
+      <!-- start green-auto-player  -->
+      <div class="ready-player-{{id}} player">
+        <audio crossorigin>
+          <source src="songs/{{filename}}" type="audio/mp3">
+        </audio>
+      </div>
+      <!-- end green-auto-player  -->
+
+    <!-- start details -->
+    <div class="player-song-info">
+      <p class="song-categories">Categories: {{categories}}</p>
+      <p class="song-ranking">#{{ranking}} in the ranking</p>
     </div>
-      <!-- end details -->
-    </script>
-    <!-- end template song list  -->
+  </div>
+    <!-- end details -->
+  </script>
+  <!-- end template search list -->
 
-    <!-- start  green-audio-player -->
-    <script src="./vendor/green-audio-player.min.js"></script>
-    <!-- end green-audio-player -->
+  <!-- start template discover list -->
+  <script id="template-discover-list" type="text/x-handlebars-template">
+    <div class="player-song">
+      <p class="song-header">{{name}} - {{title}}</p>
 
-    <!-- start the Handlebars library -->
+      <!-- start green-auto-player  -->
+      <div class="ready-player-{{id}} player">
+        <audio crossorigin>
+          <source src="songs/{{filename}}" type="audio/mp3">
+        </audio>
+      </div>
+      <!-- end green-auto-player  -->
+
+    <!-- start details -->
+    <div class="player-song-info">
+      <p class="song-categories">Categories: {{categories}}</p>
+      <p class="song-ranking">#{{ranking}} in the ranking</p>
+    </div>
+  </div>
+    <!-- end details -->
+  </script>
+  <!-- end template discover list -->
+
+
+  <!-- start  green-audio-player -->
+  <script src="./vendor/green-audio-player.min.js"></script>
+  <!-- end green-audio-player -->
+
+  <!-- start the Handlebars library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <!-- end the Handlebars library -->
 
   <!-- start type="module" tells the browser to split jst into separate files -->
   <script src="./js/app.js" type="module"></script>
   <!-- end type="module" tells the browser to split jst into separate files -->
+  <script src="./js/components/SongList.js" type="module"></script>
   </body>
 </html>
