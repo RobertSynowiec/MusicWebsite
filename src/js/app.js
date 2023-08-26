@@ -1,14 +1,14 @@
-import { select, classNames } from './settings.js';
+import { select, classNames, classFor } from './settings.js';
 
-const app = {
+export const app = {
 
   initPages: function () {
 
+
     this.pages = document.querySelector(select.containerOf.pages).children;
-    console.log('thispages, ', this.pages);
 
     this.links = document.querySelectorAll(select.nav.links);
-    console.log('thislinks, ', this.links); const idFromHash = window.location.hash.replace('#/', '');
+    const idFromHash = window.location.hash.replace('#/', '');
 
     let pageMatchingHash = this.pages[0].id;
 
@@ -19,7 +19,6 @@ const app = {
         break;
       }
     }
-
     this.activatePage(pageMatchingHash);
 
     for (let link of this.links) {
@@ -34,7 +33,6 @@ const app = {
         const id = clikedElement.getAttribute('href').replace('#', '');
 
         /* run this.activePage with that id */
-
         thisApp.activatePage(id);
 
         /* change url hash */
@@ -56,11 +54,31 @@ const app = {
     }
   },
 
+  initPlayer: function () {
+
+    document.addEventListener('DOMContentLoaded', function () {
+      GreenAudioPlayer.init({ // eslint-disable-line
+        selector: classFor.player,
+        stopOthersOnPlay: true
+      });
+
+      GreenAudioPlayer.init({ // eslint-disable-line
+        selector: classFor.playerDownload,
+        stopOthersOnPlay: true,
+        showDownloadButton: true,
+        enableKeystrokes: true
+      });
+
+      GreenAudioPlayer.init({ // eslint-disable-line
+        selector: classFor.playerAccessibility,
+        stopOthersOnPlay: true,
+        enableKeystrokes: true
+      });
+    });
+
+  },
   init: function () {
-
     this.initPages();
-
-
-  }
+  },
 };
 app.init();

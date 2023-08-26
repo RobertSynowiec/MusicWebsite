@@ -1,9 +1,9 @@
-.search{
+.discover{
   width: 575px;
   margin: 0 auto;
   margin-top: 114px;
 
-  .title-search{
+  .title-discover{
     font-size: 60px;
     color: $color-light;
     text-transform: uppercase;
@@ -13,49 +13,9 @@
     letter-spacing: 12px;
     margin-bottom: 58px;
   }
-
-  .box-search{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-
-    p{
-      font-size: 30px;
-      text-transform: capitalize;
-      font-weight: 400;
-      letter-spacing: 6px;
-      color: $color-light;
-    }
-
-    .form{
-      display: flex;
-      justify-content: space-between;
-
-      .form-search {
-        width: 355px;
-        height: 59px;
-        background-color: $color-light ;
-        border-radius: 5px;
-      }
-
-      .btn-search{
-        padding: 17px 10px;
-        background-color: $color-btn;
-        font-size: 20px;
-        letter-spacing: 4px;
-        font-weight: 400;
-        color: $color-light;
-        font-family: $font-title;
-        border-radius: 5px;
-        float: right;
-        margin-left: 10px;
-      }
-    }
-  }
 }
 
-.info-found{
+.info-discover{
   margin: 90px 0;
   color: $color-light;
   font-size: 30px;

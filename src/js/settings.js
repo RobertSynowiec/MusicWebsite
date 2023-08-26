@@ -6,11 +6,17 @@ export const select = {
   },
   containerOf: {
     songs: '#song-list',
+    search: '#search-list',
     pages: '#pages',
   },
   nav: {
     links: '.link a',
-  }
+  },
+  search: {
+    form: 'search-form',
+    input: 'search-input',
+    result: 'results-list'
+  },
 };
 export const classNames = {
   pages: {
@@ -30,6 +36,7 @@ export const classFor = {
   player: '.player',
   playerDownload: '.player-with-download',
   playerAccessibility: '.player-with-accessibility',
+  subscribe: '.subscribe',
 };
 export const templates = {
   songList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),

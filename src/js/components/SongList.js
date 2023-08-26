@@ -1,6 +1,7 @@
-import { templates, select, classFor } from '../settings.js';
+import { templates, select } from '../settings.js';
 import { dataSource } from '../data.js';
 import { utils } from '../utilis.js';
+//import { app } from '../app.js';
 
 class SongList {
 
@@ -9,9 +10,9 @@ class SongList {
     this.getElement();
     this.initData();
     this.render();
-    this.initPlayer();
+    //app.initPlayer();
   }
-  getElement() { //
+  getElement() {
 
     this.songList = document.querySelector(select.containerOf.songs);
   }
@@ -32,31 +33,7 @@ class SongList {
 
       /* The generated DOM element is added as a new DOM child to the .songList */
       this.songList.appendChild(generatedElementDOM);
-
     }
-  }
-  initPlayer() {
-
-    document.addEventListener('DOMContentLoaded', function () {
-            GreenAudioPlayer.init({ // eslint-disable-line
-        selector: classFor.player,
-        stopOthersOnPlay: true
-      });
-
-            GreenAudioPlayer.init({ // eslint-disable-line
-        selector: classFor.playerDownload,
-        stopOthersOnPlay: true,
-        showDownloadButton: true,
-        enableKeystrokes: true
-      });
-
-            GreenAudioPlayer.init({ // eslint-disable-line
-        selector: classFor.playerAccessibility,
-        stopOthersOnPlay: true,
-        enableKeystrokes: true
-      });
-    });
-
   }
 }
 const templateManager = new SongList(); // eslint-disable-line

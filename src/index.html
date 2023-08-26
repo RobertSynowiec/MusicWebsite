@@ -28,43 +28,58 @@
               <a href="#discover"> discover</a>
             </div>
       </section>
-
       <div id="pages">
         <section class="active" id="index">
             <div id="song-list" class="song-list-container">
             </div>
+            <section class="subscribe">
+              <div class="title-subscribe">SUBSCRIBE NOW</div>
+              <div class="subscribe-background">
+                <img src="/images/subscribe.jpg" alt="img">
+              </div>
+              <div class="title-subscribe-name">
+                Dean<br>
+                &nbsp;&nbsp;&nbsp;Hen<span>son</span>
+              </div>
+              <div class="subscribe-artist-img">
+                <img src="/images/artist.jpg" alt="img">
+              </div>
+              <div class="title-album">
+                <p class="new-album">NEW ALBUM</p>
+                <br>
+                <p class="availabe-new-album">Available only for subscribers</p>
+              </div>
+              <div class="btn-join">
+                <a href="#">join now</a>
+              </div>
+            </section>
         </section>
         <section id="search">
-          <div id="search-list" class="search-list-container">
-          </div>
+          <div class="search">
+            <div class="title-search">search</div>
+            <div class="box-search">
+                <p>name</p>
+                <form id="search-form">
+                    <input type="text" id="search-input"placeholder=""><br>
+                    <button class="btn-search" type="submit">search</button>
+                  </form>
+
+            </div>
+        </div>
+        <div class="info-found">We have found 3 songs...</div>
+        <ul id="results-list"></ul> <!-- wyniki wyszukwania -->
+        <div id="search-list" class="search-list-container">
+        </div>
         </section>
         <section id="discover">
         <div id="discover-list" class="discover-list-container">
+          <div class="discover">
+            <div class="title-discover">discover</div>
+        </div>
+        <div class="info-discover">Give it a try!</div>
         </div>
         </section>
       </div>
-
-      <section class="subscribe">
-        <div class="title-subscribe">SUBSCRIBE NOW</div>
-        <div class="subscribe-background">
-          <img src="/images/subscribe.jpg" alt="img">
-        </div>
-        <div class="title-subscribe-name">
-          Dean<br>
-          &nbsp;&nbsp;&nbsp;Hen<span>son</span>
-        </div>
-        <div class="subscribe-artist-img">
-          <img src="/images/artist.jpg" alt="img">
-        </div>
-        <div class="title-album">
-          <p class="new-album">NEW ALBUM</p>
-          <br>
-          <p class="availabe-new-album">Available only for subscribers</p>
-        </div>
-        <div class="btn-join">
-          <a href="#">join now</a>
-        </div>
-      </section>
       <footer>
         <div class="footer">All rights reserved</div>
     </footer>
@@ -74,7 +89,7 @@
           <p class="song-header">{{name}} - {{title}}</p>
 
           <!-- start green-auto-player  -->
-          <div class="ready-player-{{id}} player">
+          <div class="ready-player-{{id}} player player-accessible">
             <audio crossorigin>
               <source src="songs/{{filename}}" type="audio/mp3">
             </audio>
@@ -97,7 +112,7 @@
       <p class="song-header">{{name}} - {{title}}</p>
 
       <!-- start green-auto-player  -->
-      <div class="ready-player-{{id}} player">
+      <div class="ready-player-{{id}} player player-accessible">
         <audio crossorigin>
           <source src="songs/{{filename}}" type="audio/mp3">
         </audio>
@@ -120,7 +135,7 @@
       <p class="song-header">{{name}} - {{title}}</p>
 
       <!-- start green-auto-player  -->
-      <div class="ready-player-{{id}} player">
+      <div class="ready-player-{{id}} player player-accessible">
         <audio crossorigin>
           <source src="songs/{{filename}}" type="audio/mp3">
         </audio>
@@ -150,5 +165,6 @@
   <script src="./js/app.js" type="module"></script>
   <!-- end type="module" tells the browser to split jst into separate files -->
   <script src="./js/components/SongList.js" type="module"></script>
+  <script src="./js/components/SearchList.js" type="module"></script>
   </body>
 </html>
