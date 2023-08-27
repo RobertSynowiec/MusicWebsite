@@ -7,12 +7,9 @@ class SearchList {
 
   constructor() {
 
-    //const filterSong = [];
-
     this.getElement();
     this.initSearch();
-    this.initData();
-    this.render();
+    this.matchingFiles = [];
     app.initPlayer();
   }
   getElement() {
@@ -20,64 +17,71 @@ class SearchList {
     this.searchList = document.querySelector(select.containerOf.search);
     console.log('this.searchList ', this.searchList);
 
+  }
+  clearTablematchingFiles() { // clears matchingFiles arrays before next search
+    this.matchingFiles = [];
 
   }
+  clearHangelbarsContainer() {
+    this.searchList.innerHTML = '';
+  }
+
   initSearch() {
 
     /* DOMContentLoaded waits for the entire DOM (Document Object Model) to be loaded, which ensures that the JavaScript code doesn't try to run until the page is fully loaded.*/
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', () => {
       const searchForm = document.getElementById(select.search.form);
       const searchInput = document.getElementById(select.search.input);
       const resultsList = document.getElementById(select.search.result);
-      console.log('searchForm ', searchForm);
-      console.log('searchInput ', searchInput);
-      console.log('resultsList', resultsList);
 
 
-      searchForm.addEventListener('submit', function (event) {
+      searchForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
+        /* Retrieving the entered query in form search and changing it to lowercase */
         const searchTerm = searchInput.value.toLowerCase();
+
+        /* Clearing results before starting a new search */
         resultsList.innerHTML = '';
+        this.clearTablematchingFiles();
+        this.clearHangelbarsContainer();
 
-        console.log('searchTerm', searchTerm);
-
-        const matchingFiles = [];
-        console.log('matchingFiles', matchingFiles);
+        /* iterating through the dataSource.songs array,
+          checking if the entered query is in array,
+          If the condition is true (the file name contains the entered query), the file name is added to the array */
         dataSource.songs.forEach(song => {
-          const fileName = song.filename;
+          const fileName = song.name + ' ' + song.title;
           console.log(fileName);
           if (fileName.toLowerCase().includes(searchTerm)) {
-            matchingFiles.push(fileName);
+            this.matchingFiles.push(song);
           }
+
         });
 
-        displayResults(matchingFiles);
+        this.render();
+
+        /* calling displayResults function */
+        displayResults(this.matchingFiles);
       });
+
+      /* Filtering filenames in the this.matchingFiles array */
 
       function displayResults(files) {
         if (files.length === 0) {
-          resultsList.innerHTML = '<p>Nie znaleziono pasujących plików.</p>';
+          resultsList.innerHTML = '<p>We didn\'t find the songs</p>';
         } else {
-          files.forEach(file => {
-            const listItem = document.createElement('li');
-            listItem.textContent = file;
-            resultsList.appendChild(listItem);
-          });
+          resultsList.innerHTML = '<p>We have found ' + files.length + ' songs.</p>';
         }
       }
     });
   }
-  initData() {
-    this.data = dataSource.songs; // reference to the data in the data.js file
-  }
-  /*creating the html code (#home) based on the Handlebars template*/
   render() {
 
-
     /* iterating over all songs in data.js */
-    for (let elem of this.data) {
+    for (let elem of this.matchingFiles) {
+
+      console.log(elem);
 
       /* html code generation */
       const generatedHTML = templates.songList(elem);
@@ -87,7 +91,6 @@ class SearchList {
 
       /* The generated DOM element is added as a new DOM child to the .songList */
       this.searchList.appendChild(generatedElementDOM);
-
 
     }
   }
