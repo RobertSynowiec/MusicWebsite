@@ -21,13 +21,13 @@
         </ul>
       </div>
     </header>
-      <section id="link" class="player-section">
+    <section id="link" class="player-section">
             <div class="link">
               <a class="active" href="#index">home</a>
               <a href="#search">search</a>
               <a href="#discover"> discover</a>
             </div>
-      </section>
+    </section>
       <div id="pages">
         <section class="active" id="index">
             <div id="song-list" class="song-list-container">
@@ -63,12 +63,10 @@
                     <input type="text" id="search-input"placeholder=""><br>
                     <button class="btn-search" type="submit">search</button>
                   </form>
-
             </div>
-        </div>
-        <ul id="results-list"></ul> <!-- wyniki wyszukwania -->
-        <div id="search-list" class="search-list-container">
-        </div>
+          </div>
+          <ul id="results-list"></ul>
+          <div id="search-list" class="song-list-container"></div>
         </section>
         <section id="discover">
         <div id="discover-list" class="discover-list-container">
@@ -79,7 +77,7 @@
         </div>
         </section>
       </div>
-      <footer>
+    <footer>
         <div class="footer">All rights reserved</div>
     </footer>
   <!-- start template song list  -->
@@ -88,7 +86,7 @@
           <p class="song-header">{{name}} - {{title}}</p>
 
           <!-- start green-auto-player  -->
-          <div class="ready-player-{{id}} player player-accessible">
+          <div class="ready-player-{{id}} player">
             <audio crossorigin>
               <source src="songs/{{filename}}" type="audio/mp3">
             </audio>
@@ -105,53 +103,6 @@
   </script>
   <!-- end template song list  -->
 
-  <!-- start template search list -->
-  <script id="template-search-list" type="text/x-handlebars-template">
-    <div class="player-song">
-      <p class="song-header">{{name}} - {{title}}</p>
-
-      <!-- start green-auto-player  -->
-      <div class="ready-player-{{id}} player player-accessible">
-        <audio crossorigin>
-          <source src="songs/{{filename}}" type="audio/mp3">
-        </audio>
-      </div>
-      <!-- end green-auto-player  -->
-
-    <!-- start details -->
-    <div class="player-song-info">
-      <p class="song-categories">Categories: {{categories}}</p>
-      <p class="song-ranking">#{{ranking}} in the ranking</p>
-    </div>
-  </div>
-    <!-- end details -->
-  </script>
-  <!-- end template search list -->
-
-  <!-- start template discover list -->
-  <script id="template-discover-list" type="text/x-handlebars-template">
-    <div class="player-song">
-      <p class="song-header">{{name}} - {{title}}</p>
-
-      <!-- start green-auto-player  -->
-      <div class="ready-player-{{id}} player player-accessible">
-        <audio crossorigin>
-          <source src="songs/{{filename}}" type="audio/mp3">
-        </audio>
-      </div>
-      <!-- end green-auto-player  -->
-
-    <!-- start details -->
-    <div class="player-song-info">
-      <p class="song-categories">Categories: {{categories}}</p>
-      <p class="song-ranking">#{{ranking}} in the ranking</p>
-    </div>
-  </div>
-    <!-- end details -->
-  </script>
-  <!-- end template discover list -->
-
-
   <!-- start  green-audio-player -->
   <script src="./vendor/green-audio-player.min.js"></script>
   <!-- end green-audio-player -->
@@ -163,6 +114,7 @@
   <!-- start type="module" tells the browser to split jst into separate files -->
   <script src="./js/app.js" type="module"></script>
   <!-- end type="module" tells the browser to split jst into separate files -->
+
   <script src="./js/components/SongList.js" type="module"></script>
   <script src="./js/components/SearchList.js" type="module"></script>
   </body>

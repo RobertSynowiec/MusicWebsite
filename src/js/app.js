@@ -1,9 +1,8 @@
-import { select, classNames, classFor } from './settings.js';
+import { select, classNames } from './settings.js';
 
 export const app = {
 
   initPages: function () {
-
 
     this.pages = document.querySelector(select.containerOf.pages).children;
 
@@ -56,29 +55,16 @@ export const app = {
 
   initPlayer: function () {
 
-    document.addEventListener('DOMContentLoaded', function () {
-      GreenAudioPlayer.init({ // eslint-disable-line
-        selector: classFor.player,
-        stopOthersOnPlay: true
-      });
-
-      GreenAudioPlayer.init({ // eslint-disable-line
-        selector: classFor.playerDownload,
-        stopOthersOnPlay: true,
-        showDownloadButton: true,
-        enableKeystrokes: true
-      });
-
-      GreenAudioPlayer.init({ // eslint-disable-line
-        selector: classFor.playerAccessibility,
-        stopOthersOnPlay: true,
-        enableKeystrokes: true
-      });
+    GreenAudioPlayer.init({ // eslint-disable-line
+      selector: '.player', // inits Green Audio Player on each audio container that has class "player"
+      stopOthersOnPlay: true
     });
 
   },
   init: function () {
+    this.initPlayer();
     this.initPages();
+
   },
 };
 app.init();

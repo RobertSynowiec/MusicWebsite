@@ -24,6 +24,7 @@ export const classNames = {
   },
   nav: {
     active: 'active',
+    none: 'none',
   },
 };
 export const settings = {
@@ -40,6 +41,6 @@ export const classFor = {
 };
 export const templates = {
   songList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),
-  searchList: Handlebars.compile(document.querySelector(select.templateOf.searchList).innerHTML),
-  discoverList: Handlebars.compile(document.querySelector(select.templateOf.dicoverList).innerHTML),
+  searchList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),
+  // discoverList: Handlebars.compile(document.querySelector(select.templateOf.dicoverList).innerHTML),
 };
