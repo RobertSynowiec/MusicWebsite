@@ -11,7 +11,8 @@ import { app } from '../app.js';
       this.getElement();
       this.initData();
       this.render();
-      app.initPlayer();
+      app.initPlayer(select.containerOf.songs);
+
     }
     getElement() {
 

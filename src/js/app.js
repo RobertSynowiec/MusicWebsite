@@ -52,15 +52,13 @@ export const app = {
 
     }
   },
-
-  initPlayer: function () {
-
+  initPlayer: function (select) {
     GreenAudioPlayer.init({ // eslint-disable-line
-      selector: '.player', // inits Green Audio Player on each audio container that has class "player"
+      selector: `${select} .player`, // inits Green Audio Player on each audio container that has class "player"
       stopOthersOnPlay: true
     });
-
   },
+
   init: function () {
     this.initPlayer();
     this.initPages();

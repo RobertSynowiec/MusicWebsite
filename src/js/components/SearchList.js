@@ -60,7 +60,7 @@ import { app } from '../app.js';
 
           });
           this.render();
-          app.initPlayer();
+          app.initPlayer(select.containerOf.search);
           /* calling displayResults function */
           displayResults(this.matchingFiles);
         });
