@@ -25,3 +25,24 @@ a{
   margin: 60px auto;
   font-family: $font-title;
 }
+.none{
+  display: none;
+}
+.container-section{
+
+  width: auto;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-section{
+  font-size: 60px;
+  color: $color-light;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: $font-title;
+  font-weight: 400;
+  letter-spacing: 12px;
+  margin-bottom: 58px;
+}

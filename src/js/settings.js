@@ -8,7 +8,7 @@ export const select = {
     songs: '#song-list',
     search: '#search-list',
     pages: '#pages',
-    discover: '#discover-list'
+    discover: '#discover-list',
   },
   nav: {
     links: '.link a',
@@ -16,7 +16,7 @@ export const select = {
   search: {
     form: 'search-form',
     input: 'search-input',
-    result: 'results-list'
+    result: 'results-list',
   },
 };
 export const classNames = {
@@ -25,7 +25,6 @@ export const classNames = {
   },
   nav: {
     active: 'active',
-    none: 'none',
   },
 };
 export const settings = {
@@ -39,6 +38,7 @@ export const classFor = {
   playerDownload: '.player-with-download',
   playerAccessibility: '.player-with-accessibility',
   subscribe: '.subscribe',
+  btnJoinNow: '.btn-join a',
 };
 export const templates = {
   songList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),

@@ -1,7 +1,8 @@
-import { select, classNames } from './settings.js';
+import { select, classNames, classFor } from './settings.js';
 
 export const app = {
 
+  /* Single Page App */
   initPages: function () {
 
     this.pages = document.querySelector(select.containerOf.pages).children;
@@ -18,6 +19,7 @@ export const app = {
         break;
       }
     }
+
     this.activatePage(pageMatchingHash);
 
     for (let link of this.links) {
@@ -40,6 +42,28 @@ export const app = {
       });
     }
   },
+  initButtonJoinNow: function () {
+
+    const thisApp = this
+
+    const btnJoinNow = document.querySelector(classFor.btnJoinNow);
+
+    btnJoinNow.addEventListener('click', function (event) {
+
+      event.preventDefault();
+
+      const clikedElement = this;
+      /* get page id from href attribute */
+      const id = clikedElement.getAttribute('href').replace('#', '');
+
+      /* run this.activePage with that id */
+      thisApp.activatePage(id);
+
+      /* change url hash */
+      window.location.hash = '#/' + id;
+
+    });
+  },
   activatePage: function (pageId) {
 
     /* add class active to matching pages, remove from non-matching*/
@@ -47,6 +71,7 @@ export const app = {
       page.classList.toggle(classNames.pages.active, page.id == pageId);
 
     }
+    /* add class active to matching links, remove from non-matching*/
     for (let link of this.links) {
       link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
 
@@ -58,10 +83,9 @@ export const app = {
       stopOthersOnPlay: true
     });
   },
-
   init: function () {
-    this.initPlayer();
     this.initPages();
+    this.initButtonJoinNow();
 
   },
 };

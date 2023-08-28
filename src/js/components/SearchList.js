@@ -13,7 +13,6 @@ import { app } from '../app.js';
       this.initSearch();
       this.matchingFiles = [];
 
-
     }
     getElement() {
 
@@ -27,7 +26,6 @@ import { app } from '../app.js';
     clearHangelbarsContainer() {
       this.searchList.innerHTML = '';
     }
-
     initSearch() {
 
       /* DOMContentLoaded waits for the entire DOM (Document Object Model) to be loaded, which ensures that the JavaScript code doesn't try to run until the page is fully loaded.*/
@@ -36,7 +34,6 @@ import { app } from '../app.js';
         const searchForm = document.getElementById(select.search.form);
         const searchInput = document.getElementById(select.search.input);
         const resultsList = document.getElementById(select.search.result);
-
 
         searchForm.addEventListener('submit', (event) => {
           event.preventDefault();
@@ -53,7 +50,7 @@ import { app } from '../app.js';
             If the condition is true (the file name contains the entered query), the file name is added to the array */
           dataSource.songs.forEach(song => {
             const fileName = song.name + ' ' + song.title;
-            console.log(fileName);
+
             if (fileName.toLowerCase().includes(searchTerm)) {
               this.matchingFiles.push(song);
             }
@@ -85,7 +82,6 @@ import { app } from '../app.js';
 
         /* generating dom element for find tracks */
         const generatedElementDOM = utils.createDOMFromHTML(generatedHTML);
-        console.log('generatedElementDOM ', generatedElementDOM);
 
         /* The generated DOM element is added as a new DOM child to the searchList */
         this.searchList.appendChild(generatedElementDOM);
