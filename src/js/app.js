@@ -44,7 +44,7 @@ export const app = {
   },
   initButtonJoinNow: function () {
 
-    const thisApp = this
+    const thisApp = this;
 
     const btnJoinNow = document.querySelector(classFor.btnJoinNow);
 
