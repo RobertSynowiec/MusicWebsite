@@ -78,21 +78,20 @@ import { app } from '../app.js';
     }
     render() {
 
-      /* iterating over all songs in data.js */
+      /* iterating over all songs in this.matchingFiles */
       for (let elem of this.matchingFiles) {
         /* html code generation */
         const generatedHTML = templates.songList(elem);
 
-        /* generating dom element for all tracks */
+        /* generating dom element for find tracks */
         const generatedElementDOM = utils.createDOMFromHTML(generatedHTML);
         console.log('generatedElementDOM ', generatedElementDOM);
 
-        /* The generated DOM element is added as a new DOM child to the .songList */
+        /* The generated DOM element is added as a new DOM child to the searchList */
         this.searchList.appendChild(generatedElementDOM);
 
       }
     }
   }
   const templateManager = new SearchList(); // eslint-disable-line
-  console.log(templateManager);
 }

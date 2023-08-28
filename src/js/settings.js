@@ -8,6 +8,7 @@ export const select = {
     songs: '#song-list',
     search: '#search-list',
     pages: '#pages',
+    discover: '#discover-list'
   },
   nav: {
     links: '.link a',
@@ -41,6 +42,4 @@ export const classFor = {
 };
 export const templates = {
   songList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),
-  searchList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),
-  // discoverList: Handlebars.compile(document.querySelector(select.templateOf.dicoverList).innerHTML),
 };
