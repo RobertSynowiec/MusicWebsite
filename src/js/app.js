@@ -1,4 +1,4 @@
-import { select, classNames, classFor } from './settings.js';
+import { select, classNames, classFor, settings } from './settings.js';
 
 export const app = {
 
@@ -42,6 +42,21 @@ export const app = {
       });
     }
   },
+  initData: function () {
+
+    this.data = {};
+
+    const url = settings.db.url + '/' + settings.db.songs;
+
+    fetch(url)
+      .then(rawResponse => rawResponse.json())
+      .then(parsedResponse => {
+
+        /* save parasedResposne as thisApp.data.products*/
+        this.data.songs = parsedResponse;
+
+      });
+  },
   initButtonJoinNow: function () {
 
     const thisApp = this;
@@ -84,6 +99,7 @@ export const app = {
     });
   },
   init: function () {
+    this.initData();
     this.initPages();
     this.initButtonJoinNow();
 
