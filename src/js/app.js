@@ -1,6 +1,7 @@
 import { select, classNames, classFor, settings } from './settings.js';
 import SongList from './components/SongList.js';
 import SearchList from './components/SearchList.js';
+import RandomSong from './components/RandomSong.js';
 
 
 export const app = {
@@ -58,7 +59,8 @@ export const app = {
         /* save parasedResposne as thisApp.data.products*/
         this.data.songs = parsedResponse;
         this.initSongsData();
-        this.initSearchData;
+        this.initSearchData();
+        this.initDiscoverData();
       });
   },
   initSongsData: function () {
@@ -73,7 +75,11 @@ export const app = {
 
     new SearchList(this.data);
 
-    this.initPlayer(select.containerOf.songs);
+  },
+  initDiscoverData: function () {
+
+    new RandomSong(this.data.songs);
+
   },
   initButtonJoinNow: function () {
 

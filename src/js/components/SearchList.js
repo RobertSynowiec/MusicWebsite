@@ -49,9 +49,9 @@ class SearchList {
 
         });
         this.render();
-        app.initPlayer(select.containerOf.search);
-        /* calling displayResults function */
         displayResults(this.matchingFiles);
+        app.initPlayer(select.containerOf.search);
+
       });
 
       /* Filtering filenames in the this.matchingFiles array */
@@ -81,5 +81,4 @@ class SearchList {
     }
   }
 }
-//const templateManager = new SearchList(); // eslint-disable-line
 export default SearchList;
