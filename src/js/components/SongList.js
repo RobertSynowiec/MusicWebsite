@@ -8,9 +8,6 @@ class SongList {
     this.id = id;
     this.data = data;
 
-    console.log(this.id);
-    console.log(this.data);
-
     this.render();
 
   }

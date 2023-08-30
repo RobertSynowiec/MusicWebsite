@@ -1,5 +1,6 @@
 import { select, classNames, classFor, settings } from './settings.js';
 import SongList from './components/SongList.js';
+import SearchList from './components/SearchList.js';
 
 
 export const app = {
@@ -57,6 +58,7 @@ export const app = {
         /* save parasedResposne as thisApp.data.products*/
         this.data.songs = parsedResponse;
         this.initSongsData();
+        this.initSearchData;
       });
   },
   initSongsData: function () {
@@ -65,6 +67,12 @@ export const app = {
 
       new SongList(this.data.songs[songData].id, this.data.songs[songData]);
     }
+    this.initPlayer(select.containerOf.songs);
+  },
+  initSearchData: function () {
+
+    new SearchList(this.data);
+
     this.initPlayer(select.containerOf.songs);
   },
   initButtonJoinNow: function () {
@@ -111,6 +119,7 @@ export const app = {
   init: function () {
     this.initData();
     this.initPages();
+    this.initSearchData();
     this.initButtonJoinNow();
 
   },
