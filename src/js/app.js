@@ -1,4 +1,6 @@
 import { select, classNames, classFor, settings } from './settings.js';
+import SongList from './components/SongList.js';
+
 
 export const app = {
 
@@ -54,8 +56,16 @@ export const app = {
 
         /* save parasedResposne as thisApp.data.products*/
         this.data.songs = parsedResponse;
-
+        this.initSongsData();
       });
+  },
+  initSongsData: function () {
+
+    for (let songData in this.data.songs) {
+
+      new SongList(this.data.songs[songData].id, this.data.songs[songData]);
+    }
+    this.initPlayer(select.containerOf.songs);
   },
   initButtonJoinNow: function () {
 
