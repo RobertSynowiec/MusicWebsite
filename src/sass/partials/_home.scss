@@ -8,17 +8,17 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  height: 1297px;
+  height: 100vh;
   background-image: url("/images/background.jpg");
   background-position: center center;
   background-size: cover;
   display: flex;
-  justify-content: right;
-  padding-right: 484px;
+  justify-content: center;
+  padding-right: 40px;
 
   .title-container {
     position: absolute;
-    padding-top: 447px;
+    padding-top: 280px;
     margin: 0;
     width: 1020px;
 
@@ -32,13 +32,14 @@ body {
       font-weight: 600;
       overflow: hidden;
       margin: 0;
-      text-align: right;
+      text-align: center;
     }
 
     .sub-main-title {
       margin: 0;
       padding: 0;
       text-align: center;
+      margin-left: 20px;
 
       li {
         font-family: $font-title;
@@ -119,19 +120,24 @@ body {
   height: auto;
   background-color: $color-dark;
   position: relative;
-  padding-top: 75px;
+  padding-top: 60px;
   padding-bottom: 90px;
 
   .title-subscribe {
     font-size: 100px;
     color: $color-light;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 20px;
     right: 499px;
     z-index: 10;
     position: absolute;
     top: 0px;
     font-family: $font-title;
+
+    span{
+      font-weight: 600;
+
+    }
   }
 
   .subscribe-background {
@@ -151,7 +157,7 @@ body {
   .title-subscribe-name {
     position: absolute;
     top: 515px;
-    right: 513px;
+    right: 565px;
     font-size: 100px;
     font-weight: 400;
     font-family: $font-title;
@@ -175,7 +181,7 @@ body {
     position: absolute;
     top: 856px;
     right: 313px;
-    color: $color-light;
+    color: #bfbfbf;
     font-size: 40px;
     font-family: $font-link;
     font-weight: 700;
@@ -186,7 +192,7 @@ body {
     position: absolute;
     top: 900px;
     right: 313px;
-    color: $color-light;
+    color: #bfbfbf;
     font-size: 40px;
     font-family: $font-link;
     font-weight: 600;
@@ -202,6 +208,9 @@ body {
     right: 1236px;
     z-index: 10;
     border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     a {
       text-align: center;
@@ -209,11 +218,6 @@ body {
       font-family: $font-title;
       font-weight: 700px;
       letter-spacing: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 313px;
-      height: 133px;
       color: $color-light;
       text-transform: uppercase;
     }
