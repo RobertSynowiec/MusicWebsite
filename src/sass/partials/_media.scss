@@ -303,7 +303,7 @@
     .player-song-info {
       padding-top: 5px;
       font-size: 15px;
-      width: 490px;
+      width: 100%;
       margin: auto;
 
     }}
@@ -314,8 +314,49 @@
     margin: auto;
   }
 
+  .title-section{
+    font-size: 40px;
+  }
+
+  .search {
+    width: 100%;
+
+    .box-search{
+      justify-content: center;
+
+      p{
+        font-size: 12px;
+        letter-spacing: 3px;
+      }
+
+      #search-form #search-input {
+        width: 190px;
+        height: 40px;
+      }
+
+      #search-form .btn-search {
+        padding: 8px 2px;
+        font-size: 12px;
+        letter-spacing: 3px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  #results-list {
+    font-size: 20px;
+  }
+
   .footer {
     font-size: 10px;
+  }
+
+  .discover {
+    width: 100%;
+
+    .info-discover{
+      font-size: 20px;
+    }
   }
 
 }
