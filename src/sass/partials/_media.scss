@@ -284,7 +284,168 @@
     }
   }
 
+  .player-section .link{
+
+    justify-content: space-around;
+
+    a {
+      font-size: 25px;
+    }
+  }
+
+  .song-list-container {
+    .song-header {
+      color: #ffF;
+      font-size: 25px;
+
+    }
+
+    .player-song-info {
+      padding-top: 5px;
+      font-size: 15px;
+      width: 490px;
+      margin: auto;
+
+    }}
+
+  .green-audio-player {
+    width: 500px;
+    height: 50px;
+    margin: auto;
+  }
+
   .footer {
     font-size: 10px;
+  }
+
+}
+
+@media only screen and (max-width: 576px) {
+  .header-container .title-container{
+
+    padding-top: 325px;
+    width: 300px;
+
+    .main-title {
+      font-size: 36px;
+      letter-spacing: 35px;
+      margin-left: 70px;
+
+    }
+
+    .sub-main-title li {
+
+      font-size: 9px;
+      line-height: 18px;
+      padding-top: 20px;
+
+    }
+  }
+
+  .player-section {
+    width: 340px;
+
+    .link{
+      width: 340px;
+      display: flex;
+      justify-content: space-around;
+
+      a {
+        font-size: 18px;
+
+      }
+    }
+  }
+
+  .song-list-container {
+    width: 340px;
+
+    .song-header {
+      font-size: 14px;
+    }
+
+    .player-song-info {
+      font-size: 12px;
+      margin: auto;
+    }
+  }
+
+  .green-audio-player {
+    width: 320px;
+    height: 38px;
+    margin: auto;
+
+
+  }
+
+  .subscribe{
+    padding-top: 45px;
+
+    .title-subscribe{
+
+      font-size: 14px;
+      padding-top: 37px;
+      letter-spacing: 7px;
+    }
+
+    .subscribe-artist-img {
+      position: absolute;
+      top: 90px;
+      right: 70px;
+
+      img{
+        width: 80px;
+        height: auto;
+      }
+    }
+
+    .title-subscribe-name{
+      top: 140px;
+      right: 100px;
+      font-size: 13px;
+      letter-spacing: 9px;
+
+    }
+
+    .btn-join{
+      width: 80px;
+      height: 30px;
+      top: 165px;
+      margin: auto;
+      right: 250px;
+
+      a{
+        font-size: 6px;
+        letter-spacing: 2px;
+      }
+
+    }
+
+    .new-album {
+      letter-spacing: 2px;
+      top: 190px;
+      right: 65px;
+      font-size: 8px;;
+    }
+
+    .availabe-new-album {
+      top: 205px;
+      right: 65px;
+      font-size: 8px;
+      letter-spacing: 2px;
+    }
+  }
+
+  .green-audio-player .controls{
+    font-size: 12px;
+  }
+
+  .song-list-container {
+    width: 315px;
+    margin: 65px auto;
+  }
+
+  .footer {
+    font-size: 9px;
   }
 }
