@@ -22,7 +22,6 @@ class RandomSong {
     /* Randomly pick a song from the array */
 
     const randomIndex = Math.floor(Math.random() * this.data.length);
-    console.log(randomIndex);
     const selectedSong = this.data[randomIndex];
     this.randomSongArray.push(selectedSong);
 

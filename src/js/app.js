@@ -4,8 +4,6 @@ import SearchList from './components/SearchList.js';
 import RandomSong from './components/RandomSong.js';
 import GreenAudioPlayer from '../vendor/green-audio-player.js';
 
-
-
 export const app = {
 
   /* Single Page App */
@@ -47,7 +45,6 @@ export const app = {
 
         /* get audio id */
         let players = document.querySelectorAll(classFor.audio);
-        console.log('players ', players);
 
         /* stop and reset all players */
         for (let i = 0; i < players.length; i++) {
@@ -60,19 +57,35 @@ export const app = {
   initData: function () {
 
     this.data = [];
-    console.log('td', this.data);
 
-    const url = settings.db.url + '/' + settings.db.songs;
+    const urlSongs = settings.db.url + '/' + settings.db.songs;
+    const urlAuthors = settings.db.url + '/' + settings.db.authors;
 
-    fetch(url)
-      .then(rawResponse => rawResponse.json())
-      .then(parsedResponse => {
+
+    function fetchLink(url) {
+      return fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Network error!');
+          }
+          return response.json();
+        });
+    }
+
+    const promises = [fetchLink(urlSongs), fetchLink(urlAuthors)];
+    Promise.all(promises)
+      .then((results) => {
 
         /* save parasedResposne as thisApp.data.products*/
-        this.data.songs = parsedResponse;
+        this.data.songs = results[0];
+        this.data.authors = results[1];
+
         this.initSongsData();
         this.initSearchData();
         this.initDiscoverData();
+      })
+      .catch((error) => {
+        console.error('An error occured:', error);
       });
   },
   initSongsData: function () {
