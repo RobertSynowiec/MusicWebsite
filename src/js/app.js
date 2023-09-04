@@ -2,6 +2,8 @@ import { select, classNames, classFor, settings } from './settings.js';
 import SongList from './components/SongList.js';
 import SearchList from './components/SearchList.js';
 import RandomSong from './components/RandomSong.js';
+import GreenAudioPlayer from '../vendor/green-audio-player.js';
+
 
 
 export const app = {
@@ -43,12 +45,22 @@ export const app = {
         /* change url hash */
         window.location.hash = '#/' + id;
 
+        /* get audio id */
+        let players = document.querySelectorAll(classFor.audio);
+        console.log('players ', players);
+
+        /* stop and reset all players */
+        for (let i = 0; i < players.length; i++) {
+          GreenAudioPlayer.pausePlayer(players[i]);
+          players[i].currentTime = 0;
+        }
       });
     }
   },
   initData: function () {
 
-    this.data = {};
+    this.data = [];
+    console.log('td', this.data);
 
     const url = settings.db.url + '/' + settings.db.songs;
 

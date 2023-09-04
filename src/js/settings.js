@@ -40,6 +40,7 @@ export const classFor = {
   playerAccessibility: '.player-with-accessibility',
   subscribe: '.subscribe',
   btnJoinNow: '.btn-join a',
+  audio: '.green-audio-player audio'
 };
 export const templates = {
   songList: Handlebars.compile(document.querySelector(select.templateOf.songList).innerHTML),
