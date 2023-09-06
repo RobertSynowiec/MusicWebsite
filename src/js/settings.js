@@ -9,6 +9,7 @@ export const select = {
     search: '#search-list',
     pages: '#pages',
     discover: '#discover-list',
+    categories: '#categories'
   },
   nav: {
     links: '.link a',

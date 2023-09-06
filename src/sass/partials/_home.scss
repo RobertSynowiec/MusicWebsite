@@ -224,3 +224,45 @@ body {
     }
   }
 }
+
+.categorie-choise{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: $color-light;
+    font-size: 20px;
+    font-family: $font-regular;
+
+  }
+}
+
+.categorie-choise{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+
+    a{
+      color: $color-light;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 20px;
+      font-family: $font-regular;
+      padding-right: 15px;
+
+      &:active{
+        color: red;
+      }
+    }
+  }
+}

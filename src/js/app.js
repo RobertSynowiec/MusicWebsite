@@ -3,6 +3,7 @@ import SongList from './components/SongList.js';
 import SearchList from './components/SearchList.js';
 import RandomSong from './components/RandomSong.js';
 import GreenAudioPlayer from '../vendor/green-audio-player.js';
+import FilterCategories from './components/FilterCategories.js';
 
 export const app = {
 
@@ -83,9 +84,7 @@ export const app = {
         this.initSongsData();
         this.initSearchData();
         this.initDiscoverData();
-      })
-      .catch((error) => {
-        console.error('An error occured:', error);
+        this.initSearchCategories();
       });
   },
   initSongsData: function () {
@@ -140,6 +139,12 @@ export const app = {
       link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
 
     }
+  },
+  initSearchCategories: function () {
+
+    new FilterCategories(this.data);
+
+
   },
   initPlayer: function (select) {
     GreenAudioPlayer.init({ // eslint-disable-line
