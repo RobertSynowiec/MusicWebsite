@@ -46,5 +46,6 @@ class RandomSong {
 
     }
   }
+
 }
 export default RandomSong;

@@ -9,7 +9,10 @@ export const select = {
     search: '#search-list',
     pages: '#pages',
     discover: '#discover-list',
-    categories: '#categories'
+    categories: '#categories',
+    categoriesLink: '.category a',
+    homePalayer: '.player-song',
+    homePalayerCategories: 'p.song-categories'
   },
   nav: {
     links: '.link a',
@@ -20,9 +23,15 @@ export const select = {
     result: 'results-list',
   },
 };
+export const idNames = {
+  id: {
+    showAll: '#showAll'
+  }
+};
 export const classNames = {
   pages: {
     active: 'active',
+    hidden: 'hidden'
   },
   nav: {
     active: 'active',

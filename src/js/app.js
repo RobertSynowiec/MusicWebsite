@@ -152,6 +152,7 @@ export const app = {
       stopOthersOnPlay: true
     });
   },
+
   init: function () {
     this.initData();
     this.initPages();
