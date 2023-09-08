@@ -1,5 +1,5 @@
 /*eslint no-empty: "error"*/
-import { select } from '../settings.js';
+import { classNames, select } from '../settings.js';
 
 class FilterCategories {
 
@@ -73,63 +73,87 @@ class FilterCategories {
       // listen for clicking on the link
       linkCategory.addEventListener('click', (event) => {
 
+        if (!linkCategory.classList.contains(classNames.nav.active)) {
 
-        // set the styles of the clicked link
-        linkCategory.style.color = 'red';
-        linkCategory.style.fontWeight = 'bold';
+          // set the styles of the clicked link
+          linkCategory.style.color = 'red';
+          linkCategory.style.fontWeight = 'bold';
+          linkCategory.classList.add(classNames.nav.active);
 
-        // Restore the default color for the rest of the items
-        this.linksCategories.forEach(function (otherLink) {
-          if (otherLink !== linkCategory) {
-            otherLink.style.color = '#fff';
-            otherLink.style.fontWeight = 'normal';
-          }
-        });
+          // Restore the default color for the rest of the items
+          this.linksCategories.forEach(function (otherLink) {
+            if (otherLink !== linkCategory) {
+              otherLink.style.color = '#fff';
+              otherLink.style.fontWeight = 'normal';
+              otherLink.classList.remove(classNames.nav.active);
 
-        // assign the clicked element to the clickedElement constant
-        const clickedElement = event.currentTarget;
+            }
+          });
+
+          // assign the clicked element to the clickedElement constant
+          const clickedElement = event.currentTarget;
+
+          // get the href attribute from the clicked item
+          const href = clickedElement.getAttribute('href');
+
+          // delete #
+          this.category = href.replace('#', '');
+
+          // find all player divs with category description
+          const paragrafs = document.querySelectorAll(select.containerOf.homePalayerCategories);
+
+          // iterate over all divs
+          for (let paragraf of paragrafs) {
+
+            // check if the paragraph exists and is not null or undefined)
+            if (paragraf) {
+
+              // if the condition is met, download the text content
+              this.tekstParagrafu = paragraf.textContent;
+
+              // find all div players
+              this.divPlayers = document.querySelectorAll(select.containerOf.homePalayer);
 
 
-        // get the href attribute from the clicked item
-        const href = clickedElement.getAttribute('href');
+              // Iterate through all divs and check the content
+              for (let i = 0; i < this.divPlayers.length; i++) {
 
-        // delete #
-        this.category = href.replace('#', '');
+                //assign single player divs
+                const div = this.divPlayers[i];
 
-        // find all player divs with category description
-        const paragrafs = document.querySelectorAll(select.containerOf.homePalayerCategories);
+                // check the content div
+                const contentDiv = div.textContent;
 
-        // iterate over all divs
-        for (let paragraf of paragrafs) {
+                // If the content of the div doesn't contain search clicked category, hide it
+                if (!contentDiv.includes(this.category)) {
+                  div.classList.add('hidden');
 
-          // check if the paragraph exists and is not null or undefined)
-          if (paragraf) {
+                } else {
+                  // If the content of the div contains clicked category, hide it
+                  div.classList.remove('hidden');
 
-            // if the condition is met, download the text content
-            this.tekstParagrafu = paragraf.textContent;
-
-            // find all div players
-            this.divPlayers = document.querySelectorAll(select.containerOf.homePalayer);
-
-
-            // Iterate through all divs and check the content
-            for (let i = 0; i < this.divPlayers.length; i++) {
-
-              //assign single player divs
-              const div = this.divPlayers[i];
-
-              // check the content div
-              const contentDiv = div.textContent;
-
-              // If the content of the div doesn't contain search clicked category, hide it
-              if (!contentDiv.includes(this.category)) {
-                div.classList.add('hidden');
-
-              } else {
-                // If the content of the div contains clicked category, hide it
-                div.classList.remove('hidden');
-
+                }
               }
+            }
+          }
+        } else {
+
+          // find all div players
+          this.divPlayers = document.querySelectorAll(select.containerOf.homePalayer);
+
+
+          // Iterate through all divs and check the content
+          for (let i = 0; i < this.divPlayers.length; i++) {
+
+            //assign single player divs
+            const div = this.divPlayers[i];
+
+            // If div contain hide remove all class hidden
+            if (div.classList.contains(classNames.pages.hidden)) {
+              div.classList.remove(classNames.pages.hidden);
+
+            } else {
+              // empty
             }
           }
         }
