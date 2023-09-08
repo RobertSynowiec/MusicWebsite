@@ -1,48 +1,61 @@
 .search{
-  width: 575px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 114px;
 
-  .box-search{
+  #searchForm{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 100%;
+    flex-direction: column;
 
-    p{
-      font-size: 30px;
-      text-transform: capitalize;
-      font-weight: 400;
-      letter-spacing: 6px;
-      color: $color-light;
-    }
-
-    #search-form{
+    .box-search{
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      padding-right: 140px;
 
-      #search-input {
-        width: 355px;
-        height: 59px;
+
+      label{
+        font-size: 25px;
+        text-transform: capitalize;
+        font-weight: 400;
+        letter-spacing: 6px;
+        color: $color-light;
+        padding-left: 30px;
+      }
+
+      #search-input,
+      #selectInput {
+        min-width: 300px;
+        height: 45px;
         background-color: $color-light ;
         border-radius: 5px;
       }
+    }
+  }
 
-      .btn-search{
-        padding: 17px 10px;
-        background-color: $color-btn;
-        font-size: 20px;
-        letter-spacing: 4px;
-        font-weight: 400;
-        color: $color-light;
-        font-family: $font-title;
-        border-radius: 5px;
-        float: right;
-        margin-left: 10px;
-      }
+  .buttonSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px ;
+
+    .btn-search{
+      padding: 12px;
+      background-color: $color-btn;
+      font-size: 15px;
+      letter-spacing: 4px;
+      font-weight: 400;
+      color: $color-light;
+      font-family: $font-title;
+      border-radius: 5px;
+      float: right;
+      margin-left: 10px;
     }
   }
 }
+
 
 #results-list{
   margin: 90px 0;

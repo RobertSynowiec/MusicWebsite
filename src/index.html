@@ -61,14 +61,22 @@
         <section id="search">
           <div class="search">
             <div class="title-section">search</div>
+            <form id="searchForm">
             <div class="box-search">
-                <p>name</p>
-                <form id="search-form">
-                    <input type="text" id="search-input"placeholder=""><br>
-                    <button class="btn-search" type="submit">search</button>
-                  </form>
+                <label for="textInput">name</label>
+                <input type="text" id="search-input"placeholder="">
+                <label for="textInput">category</label>
+                <select id="selectInput" name="selectInput">
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="buttonSearch">
+                <button class="btn-search" type="submit">search
+                </button>
+              </div>
+              </form>
             </div>
-          </div>
+
           <ul id="results-list"></ul>
           <div id="search-list" class="song-list-container"></div>
         </section>

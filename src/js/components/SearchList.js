@@ -26,6 +26,9 @@ class SearchList {
       const searchForm = document.getElementById(select.search.form);
       const searchInput = document.getElementById(select.search.input);
       const resultsList = document.getElementById(select.search.result);
+      console.log('searchForm', searchForm);
+      console.log('searchInput', searchInput);
+      console.log('searchInput', searchInput);
 
       searchForm.addEventListener('submit', (event) => {
         event.preventDefault();

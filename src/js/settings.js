@@ -18,7 +18,7 @@ export const select = {
     links: '.link a',
   },
   search: {
-    form: 'search-form',
+    form: 'searchForm',
     input: 'search-input',
     result: 'results-list',
   },
