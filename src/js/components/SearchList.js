@@ -1,4 +1,4 @@
-import { templates, select } from '../settings.js';
+import { templates, select, classFor } from '../settings.js';
 import { utils } from '../utilis.js';
 import { app } from '../app.js';
 
@@ -63,6 +63,8 @@ class SearchList {
       listItem.value = options;
       selectInput.appendChild(listItem);
 
+
+
     });
     this.initSearch();
   }
@@ -78,6 +80,16 @@ class SearchList {
 
       searchForm.addEventListener('submit', (event) => {
         event.preventDefault();
+
+        /* get audio id */
+        let players = document.querySelectorAll(classFor.audio);
+
+        /* stop and reset all players */
+        for (let i = 0; i < players.length; i++) {
+          GreenAudioPlayer.pausePlayer(players[i]);
+          players[i].currentTime = 0;
+        }
+
         /* Retrieving the entered query in form search and changing it to lowercase */
         const searchTerm = searchInput.value.toLowerCase();
         const searchSelectTerm = selectInput.value.toLowerCase();
