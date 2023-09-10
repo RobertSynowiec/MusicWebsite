@@ -8,15 +8,63 @@ class SearchList {
 
     this.data = data;
 
-    this.getElement();
-    this.matchingFiles = [];
+    this.arrayCategories = [];
 
+    this.getElement();
+    this.initDataCategories();
   }
+
   getElement() {
 
     this.searchList = document.querySelector(select.containerOf.search);
-    this.initSearch();
 
+  }
+  initDataCategories() {
+    // iterate over all songs
+    for (let songData in this.data.songs) {
+      // assign song to song constant
+      const song = this.data.songs[songData];
+
+      // iterate over all categories
+      for (let category of song.categories) {
+
+        // if the this.all Categories array contains categories, do nothing
+        if (this.arrayCategories.includes(category)) {
+          // empty
+        } else {
+
+          // if not include add
+          this.arrayCategories.push(category);
+
+        }
+      }
+    }
+    this.initCategories();
+  }
+  initCategories() {
+    const selectInput = document.getElementById(select.search.select);
+
+    // Creating an empty option
+    const emptyOption = document.createElement('option');
+
+    // Set the text displayed to the user
+    emptyOption.textContent = '-- select --';
+    emptyOption.value = '';
+
+    // Add an empty option to the top of the list
+    selectInput.appendChild(emptyOption);
+
+    // Add other options
+    const options = this.arrayCategories;
+
+    options.forEach((options) => {
+      const listItem = document.createElement('option');
+      listItem.textContent = options;
+      listItem.value = options;
+      selectInput.appendChild(listItem);
+
+    });
+    this.initSearch();
   }
   initSearch() {
 
@@ -25,15 +73,14 @@ class SearchList {
     document.addEventListener('DOMContentLoaded', () => {
       const searchForm = document.getElementById(select.search.form);
       const searchInput = document.getElementById(select.search.input);
+      const selectInput = document.getElementById(select.search.select);
       const resultsList = document.getElementById(select.search.result);
-      console.log('searchForm', searchForm);
-      console.log('searchInput', searchInput);
-      console.log('searchInput', searchInput);
 
       searchForm.addEventListener('submit', (event) => {
         event.preventDefault();
         /* Retrieving the entered query in form search and changing it to lowercase */
         const searchTerm = searchInput.value.toLowerCase();
+        const searchSelectTerm = selectInput.value.toLowerCase();
 
         /* Clearing results before starting a new search */
         resultsList.innerHTML = '';
@@ -44,10 +91,17 @@ class SearchList {
           checking if the entered query is in array,
           If the condition is true (the file name contains the entered query), the file name is added to the array */
         this.data.songs.forEach(song => {
+
           const fileName = song.name + ' ' + song.title;
 
-          if (fileName.toLowerCase().includes(searchTerm)) {
-            this.matchingFiles.push(song);
+          for (let category of song.categories) {
+
+            this.category = category;
+
+            if (fileName.toLowerCase().includes(searchTerm) && this.category.toLowerCase().includes(searchSelectTerm)) {
+              this.matchingFiles.push(song);
+              break;
+            }
           }
 
         });

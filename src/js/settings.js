@@ -20,6 +20,7 @@ export const select = {
   search: {
     form: 'searchForm',
     input: 'search-input',
+    select: 'selectInput',
     result: 'results-list',
   },
 };
