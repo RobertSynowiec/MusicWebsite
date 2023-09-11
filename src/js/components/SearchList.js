@@ -6,18 +6,18 @@ class SearchList {
 
   constructor(data) {
 
+
     this.data = data;
 
     this.arrayCategories = [];
 
     this.getElement();
-    this.initDataCategories();
   }
 
   getElement() {
 
     this.searchList = document.querySelector(select.containerOf.search);
-
+    this.initDataCategories();
   }
   initDataCategories() {
     // iterate over all songs
@@ -68,69 +68,66 @@ class SearchList {
   }
   initSearch() {
 
-    /* DOMContentLoaded waits for the entire DOM (Document Object Model) to be loaded, which ensures that the JavaScript code doesn't try to run until the page is fully loaded.*/
+    const searchForm = document.getElementById(select.search.form);
+    const searchInput = document.getElementById(select.search.input);
+    const selectInput = document.getElementById(select.search.select);
+    const resultsList = document.getElementById(select.search.result);
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const searchForm = document.getElementById(select.search.form);
-      const searchInput = document.getElementById(select.search.input);
-      const selectInput = document.getElementById(select.search.select);
-      const resultsList = document.getElementById(select.search.result);
+    searchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
 
-      searchForm.addEventListener('submit', (event) => {
-        event.preventDefault();
+      /* get audio id */
+      let players = document.querySelectorAll(classFor.audio);
+      console.log(players);
 
-        /* get audio id */
-        let players = document.querySelectorAll(classFor.audio);
+      /* stop and reset all players */
+      for (let i = 0; i < players.length; i++) {
+        GreenAudioPlayer.pausePlayer(players[i]); // eslint-disable-line
+        players[i].currentTime = 0;
+      }
 
-        /* stop and reset all players */
-        for (let i = 0; i < players.length; i++) {
-          GreenAudioPlayer.pausePlayer(players[i]); // eslint-disable-line
-          players[i].currentTime = 0;
-        }
+      /* Retrieving the entered query in form search and changing it to lowercase */
+      const searchTerm = searchInput.value.toLowerCase();
+      const searchSelectTerm = selectInput.value.toLowerCase();
 
-        /* Retrieving the entered query in form search and changing it to lowercase */
-        const searchTerm = searchInput.value.toLowerCase();
-        const searchSelectTerm = selectInput.value.toLowerCase();
+      /* Clearing results before starting a new search */
+      resultsList.innerHTML = '';
+      this.matchingFiles = [];
+      this.searchList.innerHTML = '';
 
-        /* Clearing results before starting a new search */
-        resultsList.innerHTML = '';
-        this.matchingFiles = [];
-        this.searchList.innerHTML = '';
+      /* iterating through the dataSource.songs array,
+        checking if the entered query is in array,
+        If the condition is true (the file name contains the entered query), the file name is added to the array */
+      this.data.songs.forEach(song => {
 
-        /* iterating through the dataSource.songs array,
-          checking if the entered query is in array,
-          If the condition is true (the file name contains the entered query), the file name is added to the array */
-        this.data.songs.forEach(song => {
+        const fileName = song.name + ' ' + song.title;
 
-          const fileName = song.name + ' ' + song.title;
+        for (let category of song.categories) {
 
-          for (let category of song.categories) {
+          this.category = category;
 
-            this.category = category;
-
-            if (fileName.toLowerCase().includes(searchTerm) && this.category.toLowerCase().includes(searchSelectTerm)) {
-              this.matchingFiles.push(song);
-              break;
-            }
+          if (fileName.toLowerCase().includes(searchTerm) && this.category.toLowerCase().includes(searchSelectTerm)) {
+            this.matchingFiles.push(song);
+            break;
           }
-
-        });
-        this.render();
-        displayResults(this.matchingFiles);
-        app.initPlayer(select.containerOf.search);
+        }
 
       });
+      this.render();
+      displayResults(this.matchingFiles);
+      app.initPlayer(select.containerOf.search);
 
-      /* Filtering filenames in the this.matchingFiles array */
-
-      function displayResults(files) {
-        if (files.length === 0) {
-          resultsList.innerHTML = '<p>We didn\'t find the songs</p>';
-        } else {
-          resultsList.innerHTML = '<p>We have found ' + files.length + ' songs.</p>';
-        }
-      }
     });
+
+    /* Filtering filenames in the this.matchingFiles array */
+
+    function displayResults(files) {
+      if (files.length === 0) {
+        resultsList.innerHTML = '<p>We didn\'t find the songs</p>';
+      } else {
+        resultsList.innerHTML = '<p>We have found ' + files.length + ' songs.</p>';
+      }
+    }
   }
   render() {
 

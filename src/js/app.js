@@ -165,7 +165,6 @@ export const app = {
   init: function () {
     this.initData();
     this.initPages();
-    this.initSearchData();
     this.initButtonJoinNow();
     this.initToUpperCase();
 
