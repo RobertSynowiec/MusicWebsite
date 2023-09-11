@@ -56,7 +56,6 @@
     font-size: 16px;
   }
 }
-
 @media only screen and (max-width: 1400px) {
   .header-container .title-container{
 
@@ -135,8 +134,6 @@
     font-size: 14px;
   }
 }
-
-
 @media only screen and (max-width: 992px) {
   .header-container .title-container .main-title {
 
@@ -210,9 +207,27 @@
   .footer {
     font-size: 12px;
   }
+
+  .search #searchForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .box-search{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+
+      #search-input{
+        margin-bottom: 15px;
+      }
+    }
+  }
 }
-
-
 @media only screen and (max-width: 768px) {
   .header-container .title-container .main-title {
 
@@ -318,28 +333,15 @@
     font-size: 40px;
   }
 
-  .search {
-    width: 100%;
+  .search #searchForm .box-search{
+    label {
+      font-size: 18px;
+      padding-bottom: 10px;
+    }
 
-    .box-search{
-      justify-content: center;
-
-      p{
-        font-size: 12px;
-        letter-spacing: 3px;
-      }
-
-      #search-form #search-input {
-        width: 190px;
-        height: 40px;
-      }
-
-      #search-form .btn-search {
-        padding: 8px 2px;
-        font-size: 12px;
-        letter-spacing: 3px;
-        font-weight: 400;
-      }
+    #selectInput{
+      text-align: center;
+      padding: 0;
     }
   }
 
@@ -360,7 +362,6 @@
   }
 
 }
-
 @media only screen and (max-width: 576px) {
   .header-container .title-container{
 

@@ -63,8 +63,6 @@ class SearchList {
       listItem.value = options;
       selectInput.appendChild(listItem);
 
-
-
     });
     this.initSearch();
   }
