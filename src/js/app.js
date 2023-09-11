@@ -152,13 +152,23 @@ export const app = {
       stopOthersOnPlay: true
     });
   },
+  initToUpperCase: function () {
 
+    const links = document.querySelectorAll(select.nav.links);
+
+    for (let link of links) {
+      const UpperCaseLinks = link.textContent.toUpperCase();
+      link.innerHTML = UpperCaseLinks;
+    }
+
+  },
   init: function () {
     this.initData();
     this.initPages();
     this.initSearchData();
     this.initButtonJoinNow();
+    this.initToUpperCase();
 
-  },
+  }
 };
 app.init();

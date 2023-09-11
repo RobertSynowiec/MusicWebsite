@@ -86,7 +86,7 @@ class SearchList {
 
         /* stop and reset all players */
         for (let i = 0; i < players.length; i++) {
-          GreenAudioPlayer.pausePlayer(players[i]);
+          GreenAudioPlayer.pausePlayer(players[i]); // eslint-disable-line
           players[i].currentTime = 0;
         }
 
